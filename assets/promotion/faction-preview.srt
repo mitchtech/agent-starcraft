@@ -1,0 +1,18 @@
+1
+00:00:00,000 --> 00:00:05,000
+Pick a faction
+Terran by default.
+Protoss, both, or random on request.
+Configuration preview - event coverage varies by host
+
+2
+00:00:05,000 --> 00:00:10,000
+Research complete.
+The same events, voiced by the Protoss.
+Configuration preview - event coverage varies by host
+
+3
+00:00:10,000 --> 00:00:16,000
+Context nearly full
+"You must construct additional pylons!"
+Configuration preview - event coverage varies by host

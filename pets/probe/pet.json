@@ -1,0 +1,7 @@
+{
+  "id": "probe",
+  "displayName": "Probe",
+  "description": "A small hovering Protoss worker drone with a golden shell, a blue psionic eye, and a warp beam.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

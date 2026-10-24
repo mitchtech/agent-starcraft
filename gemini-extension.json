@@ -1,0 +1,5 @@
+{
+  "name": "agent-starcraft",
+  "version": "0.1.0",
+  "description": "Local StarCraft Terran and Protoss sound notifications and controls for Gemini CLI"
+}

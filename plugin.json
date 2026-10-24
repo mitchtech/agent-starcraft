@@ -1,0 +1,39 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starcraft",
+  "version": "0.1.0",
+  "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!",
+  "author": {
+    "name": "Michael J. Mitchell",
+    "email": "michael@mitchtech.net",
+    "url": "https://github.com/mitchtech"
+  },
+  "homepage": "https://mitchtech.github.io/agent-starcraft/",
+  "repository": "https://github.com/mitchtech/agent-starcraft",
+  "license": "MIT",
+  "keywords": [
+    "audio",
+    "notifications",
+    "coding-agents",
+    "starcraft",
+    "terran",
+    "protoss",
+    "scv",
+    "probe",
+    "pet",
+    "custom-pet",
+    "codex-pet",
+    "companion"
+  ],
+  "extensions": {
+    "com.openai": {
+      "hooks": "./hooks/codex.json",
+      "interface": {
+        "displayName": "Agent StarCraft",
+        "shortDescription": "StarCraft Terran and Protoss sounds for agents, plus Codex pet slots",
+        "developerName": "Michael J. Mitchell",
+        "category": "Productivity"
+      }
+    }
+  }
+}

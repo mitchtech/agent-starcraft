@@ -1,0 +1,36 @@
+1
+00:00:00,000 --> 00:00:04,000
+Session started
+"SCV good to go, sir."
+Illustrated sound preview - not a live host recording
+
+2
+00:00:04,000 --> 00:00:08,000
+Approval needed
+"Orders, Captain?"
+Illustrated sound preview - not a live host recording
+
+3
+00:00:08,000 --> 00:00:13,000
+Destructive command
+"Nuclear launch detected."
+Illustrated sound preview - not a live host recording
+
+4
+00:00:13,000 --> 00:00:17,000
+Turn finished
+"Job's finished."
+Illustrated sound preview - not a live host recording
+
+5
+00:00:17,000 --> 00:00:22,000
+Usage limit reached
+"Not enough minerals."
+Illustrated sound preview - not a live host recording
+
+6
+00:00:22,000 --> 00:00:27,000
+Job's finished.
+Local audio. No telemetry.
+Never approves or blocks anything.
+Illustrated sound preview - not a live host recording

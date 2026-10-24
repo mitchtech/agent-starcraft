@@ -1,0 +1,983 @@
+{
+  "description": "Provenance and processing for the bundled clips. The committed WAV files are canonical; scripts/build-audio.py rebuilds them from these sources.",
+  "format": {
+    "sampleRate": 32000,
+    "channels": 1,
+    "sampleWidth": 2,
+    "loudness": -16
+  },
+  "clips": [
+    {
+      "id": "terran-scv-good-to-go",
+      "line": "SCV good to go, sir.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/58/TerranSCVReady00SC1.ogg/revision/latest",
+          "sha256": "82936369220926917dcb58c44672d381b46cf734d9570f951322ee33d178664d"
+        }
+      ],
+      "output": "b7f504b4d0d2dfbe202852c5a63658fb07b0b3e90819b1919f325dd0bd5baafa"
+    },
+    {
+      "id": "terran-battlecruiser-operational",
+      "line": "Battlecruiser operational.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/52/TerranBattlecruiserReady00SC1.ogg/revision/latest",
+          "sha256": "dc3207a5de9377e916b6fac85f0cbe8a6eeb69fb52f1a09f6412d3ba8edecfa0"
+        }
+      ],
+      "output": "0943743ec498b886e3cbf9427e6de8b4d9a45f5486d3251698f5c08eac734780"
+    },
+    {
+      "id": "terran-scv-affirmative",
+      "line": "Affirmative.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/f9/TerranSCVYes00SC1.ogg/revision/latest",
+          "sha256": "7493b6be7410d66e4cc1edb2818855e38954aef8bf74697987421faa6dd06c28"
+        }
+      ],
+      "output": "8ed10fa98539dc7e89b977641f25b62569d9df63ba9b5463426ab69f00288a33"
+    },
+    {
+      "id": "terran-scv-roger-that",
+      "line": "Roger that.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/6/63/TerranSCVYes01SC1.ogg/revision/latest",
+          "sha256": "b287e58146646eef2dc85b112f0c3f24997fb0f575f330978d69409171ff36b2"
+        }
+      ],
+      "output": "f17384f5d5c6a9a7b97cdd79da499d6e3e3409962134cfa3a2925c24512ab5a1"
+    },
+    {
+      "id": "terran-scv-right-away-sir",
+      "line": "Right away, sir.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/9/97/TerranSCVYes02SC1.ogg/revision/latest",
+          "sha256": "8fc3ad8df9f38262ddc4124d8730a4aad71af9eaade901842e607b6021f21e6c"
+        }
+      ],
+      "output": "6d6ce913731939bd1e5ac9bbf56290f788958d722d4c0227f22a0cc296f64ace"
+    },
+    {
+      "id": "terran-scv-orders-received",
+      "line": "Orders received.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/4/4e/TerranSCVYes03SC1.ogg/revision/latest",
+          "sha256": "928d2df54769dce0757f74f5e2b50803dc14ff28304de157d0db05a47fec7943"
+        }
+      ],
+      "output": "6a454159f7d8dfdfac1903eaffe90e4e9a847b8ea591494b5e89075587ff3678"
+    },
+    {
+      "id": "terran-marine-go-go-go",
+      "line": "Go, go, go!",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/38/TerranMarineYes00SC1.ogg/revision/latest",
+          "sha256": "82c5d7ce3b3e72a6f1b74f024d5b26107e5d3472a76b0238b28659239180c8dd"
+        }
+      ],
+      "output": "1b21e880b8558ad1244ed3fcab48c33f39a44a79bc439809b799412e810df7bd"
+    },
+    {
+      "id": "terran-marine-outstanding",
+      "line": "Outstanding.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/d8/TerranMarineYes02SC1.ogg/revision/latest",
+          "sha256": "ed3e387a307f34521ea07f9ae9f16b646613b45bb9ecd829380e484bff839439"
+        }
+      ],
+      "output": "30839829be1e16175ae0197054a16db4d79ed50a35dca2dbf58af8edba1b26b9"
+    },
+    {
+      "id": "terran-marine-rock-and-roll",
+      "line": "Rock and roll.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/35/TerranMarineYes03SC1.ogg/revision/latest",
+          "sha256": "23e2b09cd1d7ea58b2481526f034d324996e5b5202dbcf02e9deb60ee4979637"
+        }
+      ],
+      "output": "667b95cae05505136c264f608ad04fe43d2aecb8babefdc9887186f77d042a23"
+    },
+    {
+      "id": "terran-battlecruiser-make-it-happen",
+      "line": "Make it happen.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/6/6d/TerranBattlecruiserYes00SC1.ogg/revision/latest",
+          "sha256": "4a260ab2fb391c8a132ca45a69dbf6f875f8e3e669c4b4331e13b20b06cd8590"
+        }
+      ],
+      "output": "c00b0ac62d01e1f54bc3e2f2d2a3eb474be768784aa697d627f364d74b2a6ab9"
+    },
+    {
+      "id": "terran-scv-cant-believe",
+      "line": "I can't believe they put me in one of these things.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/8c/TerranSCVPissed03SC1.ogg/revision/latest",
+          "sha256": "b96b9249e8e651171c732701b8a11c96c1acaff6367df470dce9214759b6cb7f"
+        }
+      ],
+      "output": "bb27c6171e10fe84382e93498d7337f005714cafe8e433eefda654516d0ef51d"
+    },
+    {
+      "id": "terran-scv-claustrophobic",
+      "line": "I told 'em I was claustrophobic. I gotta get outta here!",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/1/10/TerranSCVPissed05SC1.ogg/revision/latest",
+          "sha256": "1b2404833000c5a5671a1a8e3453a1fd2fc61f9b866a367b37eab8dda57de9f9"
+        }
+      ],
+      "output": "4dec2b3d79ff060c1f14feb398d2cfd5b7546c6aab580802cb6a79b54283e86d"
+    },
+    {
+      "id": "terran-marine-frag-commander",
+      "line": "I vote we frag this commander.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/0/01/TerranMarinePissed03SC1.ogg/revision/latest",
+          "sha256": "57164d48aa0aa58d0292783de9e2bbd6a35e6a6d2b01368a76a130c644b46708"
+        }
+      ],
+      "output": "72db759e172c06e6a6554cab63cf26e195fbb0f702a8046ea99d35281fd84ff2"
+    },
+    {
+      "id": "terran-marine-neural-implants",
+      "line": "If it weren't for these damn neural implants, you'd be a smoking crater by now!",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/dd/TerranMarinePissed06SC1.ogg/revision/latest",
+          "sha256": "8501eda50ec9f0db174f90b75a9268293c77b5f844c1b04ee4a94eb28d739e34"
+        }
+      ],
+      "output": "52eb67ea04eb5c215614d25a9902564905739efbe8d0b3a780bc2e2f830c072b"
+    },
+    {
+      "id": "terran-battlecruiser-behind-schedule",
+      "line": "We are getting way behind schedule.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/1/1b/TerranBattlecruiserPissed03SC1.ogg/revision/latest",
+          "sha256": "bcc2be64f9036b37160d99ff6aecb81625a5b482665da5c12f756cb23b5df7eb"
+        }
+      ],
+      "output": "6209fc6213c849fc7cbe2cad79756ba6c86eb6409d723364c3393cc858250331"
+    },
+    {
+      "id": "terran-scv-yes-sir",
+      "line": "Yes, sir?",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/9/98/TerranSCVWhat00SC1.ogg/revision/latest",
+          "sha256": "4bab761e60e61fc4841db5b7a09f6b9ce7b890ddbdcc99fa3cdfd045619d1d75"
+        }
+      ],
+      "output": "855dfa2dd7a7eb62bc6e132e67cb5c1b5d0d5ab3e5021b14e211d83fc467bfa1"
+    },
+    {
+      "id": "terran-scv-orders-captain",
+      "line": "Orders, Captain?",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/d3/TerranSCVWhat01SC1.ogg/revision/latest",
+          "sha256": "52077c11e59f1ef36b8d2498cb4b91efcf63d2277324ea0bb82d010d026b5da7"
+        }
+      ],
+      "output": "803ac577d9d56d98dd65395fc9dfba77fff7035df976d0ae0665bfb402bacd5e"
+    },
+    {
+      "id": "terran-scv-i-read-you",
+      "line": "I read you.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/4/42/TerranSCVWhat02SC1.ogg/revision/latest",
+          "sha256": "edcb4dacdc4b3cf4c3ba2d2fec08d03bab11584d3f7b88cf8a451b937842acfc"
+        }
+      ],
+      "output": "41d742a7d8e4ae97981c41b39a769a107abed9504dae8a62df029cd1c5ed47bd"
+    },
+    {
+      "id": "terran-adjutant-nuclear-launch",
+      "line": "Nuclear launch detected.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/87/TerranAdjutantUpdate04SC1.ogg/revision/latest",
+          "sha256": "ddccf159fa7c2824e955a9f43bcbdcdec962f0797d07ec6222d369767c383a09"
+        }
+      ],
+      "output": "f55133ba05d92d650ed1c2f555e8dd59130c56f8e016cd2612cee21d01b501b8"
+    },
+    {
+      "id": "terran-adjutant-base-under-attack",
+      "line": "Base is under attack.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/7/72/TerranAdjutantUpdate00SC1.ogg/revision/latest",
+          "sha256": "13502827ccf8c044c52040099102ac7c26d2e52892b6a00ec0915ca99864a1b0"
+        }
+      ],
+      "output": "39a66ec626c73c4a68b1747745fb920fe727742c8e1039e78c476c162e364f33"
+    },
+    {
+      "id": "terran-battlecruiser-receiving-transmission",
+      "line": "Receiving transmission.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/7/76/TerranBattlecruiserWhat01SC1.ogg/revision/latest",
+          "sha256": "af3abfd395b47a944726b543f1272db6fe07968fcc21b8b554b96e42f443cc89"
+        }
+      ],
+      "output": "6f561e7b007bc77ad814276b15e24dafa9dcc7a54b405eefbb38812d959cc059"
+    },
+    {
+      "id": "terran-dropship-input-coordinates",
+      "line": "Input coordinates.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c0/TerranDropshipWhat03SC1.ogg/revision/latest",
+          "sha256": "b119151f2e92b9223ca7f2b89fdd527b1646b10ea1ef778bce20f3e995ab6cae"
+        }
+      ],
+      "output": "57e6ed054541a5a4e932e28d04a04138d840b0a8e2e5c14791adfa6b4a9ef8e9"
+    },
+    {
+      "id": "terran-scv-reporting-for-duty",
+      "line": "Reporting for duty.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/4/40/TerranSCVWhat03SC1.ogg/revision/latest",
+          "sha256": "8c9584b49235ca616e89f7f72b2d4d22cac508b0501b23f49ac03bad8b8bb4ca"
+        }
+      ],
+      "output": "0272007ea044b4f7194f95154de9bad6b9e845a8626ed433dc2587168049cfab"
+    },
+    {
+      "id": "terran-scv-jobs-finished",
+      "line": "Job's finished.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/6/6f/TerranSCVUpdate00SC1.ogg/revision/latest",
+          "sha256": "4e5311496685caa6040c56678e649fcd926fe6318da0bcf1ef61fa8a943b8b85"
+        }
+      ],
+      "output": "dbe84c010f9f3e52dc2df0a235127bcf42e0f5ef04f26e1ed05389c0cd0a0c5b"
+    },
+    {
+      "id": "terran-adjutant-upgrade-complete",
+      "line": "Upgrade complete.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c7/TerranAdjutantUpdate06SC1.ogg/revision/latest",
+          "sha256": "bb1b094bb1ced2306fb573830c5e7308f30cb92a29ea1eb415ac6bddbd48dd51"
+        }
+      ],
+      "output": "c0554e6cbe0f4965d5af7c370b41019c8a566ffcc31fee92f16d5b2a516ed9fb"
+    },
+    {
+      "id": "terran-adjutant-not-enough-minerals",
+      "line": "Not enough minerals.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/fe/TerranAdjutantError00SC1.ogg/revision/latest",
+          "sha256": "8ea59c7a09f6613b4c37bd6f910c082b31d9f632fbdf8d84517abbf858772ee3"
+        }
+      ],
+      "output": "7c94d3161169b1b2a9e49ceb07dbb66e82e650256b95333c3bba4d6ec3b028f1"
+    },
+    {
+      "id": "terran-adjutant-not-enough-energy",
+      "line": "Not enough energy.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/82/TerranAdjutantError06SC1.ogg/revision/latest",
+          "sha256": "d1ff6e5ddb50a11c9f6f9db428a6135f69a011dc315f2ee56edf28393e556629"
+        }
+      ],
+      "output": "36f5ba28f9926a476fdcc7cc207f89344762fbb88682d7d0ecaa77595ef3ff10"
+    },
+    {
+      "id": "terran-adjutant-insufficient-gas",
+      "line": "Insufficient vespene gas.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/1/18/TerranAdjutantError01SC1.ogg/revision/latest",
+          "sha256": "ab8c03ce9b34925ed9bd157723534a4147ef2653491c049aee433fc7107b5ee7"
+        }
+      ],
+      "output": "88b4fccaaaf4877f4040ddf223dbdf29f13c9951d9f69ef1422bbbb94c992727"
+    },
+    {
+      "id": "terran-adjutant-supply-depots",
+      "line": "Additional supply depots required.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c8/TerranAdjutantError02SC1.ogg/revision/latest",
+          "sha256": "abc8118093654e823ac5bef61788a57018b48c0df1ba7ac5ce8676ee9f91b921"
+        }
+      ],
+      "output": "c8678e1346483b887c8b07f72f03afdd27d6d68f682bfb7d2d4372f03f16de28"
+    },
+    {
+      "id": "terran-adjutant-abandoning-structure",
+      "line": "Abandoning auxiliary structure.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/fc/TerranAdjutantUpdate05SC1.ogg/revision/latest",
+          "sha256": "37c024397ddc12df47775182f5bc5d53433eb0981e3ad1de92d21b73b3999571"
+        }
+      ],
+      "output": "ae51cdb0b8cc0ac9ad5c6610388843b302fab097a661b36cec7539f65fde12d4"
+    },
+    {
+      "id": "terran-adjutant-landing-interrupted",
+      "line": "Landing sequence interrupted.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/0/03/TerranAdjutantError03SC1.ogg/revision/latest",
+          "sha256": "09e69b73c5b8d05d7b2c2700d6fb84c990bf752aa0624723ae902d3a31f00bb2"
+        }
+      ],
+      "output": "5f597e37bcb270b1a8d8181f1b74e8b7fd1e958a2084ddff25da6df32036d757"
+    },
+    {
+      "id": "terran-marine-death",
+      "line": "(marine death cry)",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/8f/TerranMarineDeath00SC1.ogg/revision/latest",
+          "sha256": "f53ab68785bf1720c53e59cab1bd8b9d9481349f2eb9a13877950a65df042e22"
+        }
+      ],
+      "output": "f48ffdfc8db0cae5796a76cd940a56f6b8831ac7c318ca227d3e1e2e7cb84447"
+    },
+    {
+      "id": "terran-scv-cant-build-there",
+      "line": "I can't build there.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/a/ad/TerranSCVError01SC1.ogg/revision/latest",
+          "sha256": "e63335a04d3f0cf9fdce1a6d16fd379700e34ea9d49a6e91a74472ba8270a924"
+        }
+      ],
+      "output": "5b529dac6a95f77920e55f785cfcaeecf2a4a2d350444ec8ccdcdf7ad4ffb95c"
+    },
+    {
+      "id": "terran-scv-something-in-the-way",
+      "line": "I can't build it. Something's in the way.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/33/TerranSCVError00SC1.ogg/revision/latest",
+          "sha256": "8ae9c0ec431bc66038db1b6befe4bd3cb130deb70d07744681f18569f54f6558"
+        }
+      ],
+      "output": "e949878f58109779c4f30690ae71baaee08dd0cca908b13161843f2fbe8432f8"
+    },
+    {
+      "id": "terran-marine-piece-of-me",
+      "line": "You want a piece of me, boy?",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/d6/TerranMarineReady00SC1.ogg/revision/latest",
+          "sha256": "2dc0598f67e865f2f25732e148e8b8bdd66be58032a0a2992dd7a80046458c34"
+        }
+      ],
+      "output": "4533aed19a5e2732440ceca3efc1c27481f2149716ee550588027fbbaf11ab4c"
+    },
+    {
+      "id": "terran-ghost-exterminator",
+      "line": "Somebody call for an exterminator?",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/da/TerranGhostReady00SC1.ogg/revision/latest",
+          "sha256": "3c4406ce24fe01b96bb599ad4129215598e252f44bb027a5731f32876c988af9"
+        }
+      ],
+      "output": "22caee52ff0948a27bcb1bba5c31752ed576084e8f34c0c8ded93c9ef662cad0"
+    },
+    {
+      "id": "terran-siege-tank-ready",
+      "line": "Ready to roll out!",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/f5/TerranSiegeTankReady00SC1.ogg/revision/latest",
+          "sha256": "12668090e4fab629026831792f43acd0b76a7f348baecedfb4fc31d743af2b97"
+        }
+      ],
+      "output": "4bbbd2b79764e2ae4a096fdecca4f4758271fca99fab4ebf9b90d47601cf48da"
+    },
+    {
+      "id": "terran-scv-death",
+      "line": "(SCV destroyed)",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/dd/TerranSCVDeath00SC1.ogg/revision/latest",
+          "sha256": "ad2677b2ae966438ddd5fbe18bdfac57c9fb7a58e2c8a2018138357779c5c3c4"
+        }
+      ],
+      "output": "a9cfccb776158985f2a71fd8d3ece7e3ed1d2ddafdae34a04a4b528c13d54c31"
+    },
+    {
+      "id": "terran-adjutant-nuclear-missile-ready",
+      "line": "Nuclear missile ready.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/1/1a/TerranAdjutantUpdate07SC1.ogg/revision/latest",
+          "sha256": "3d71f2f714feef99f8313877c3c7481d3edeb50832b6de1542b0b9c19f9f936f"
+        }
+      ],
+      "output": "cd1878885b5596e08d4a95bf80ac83d6da8277f71725b3a2dfbf9dc4ef21a5c6"
+    },
+    {
+      "id": "terran-marine-thats-the-stuff",
+      "line": "That's the stuff.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/9/9f/TerranMarineStimPack00SC1.ogg/revision/latest",
+          "sha256": "85744a35961637d7e19131b1937837bc6bf4ab3d83c8ccfa927d821409924c5f"
+        }
+      ],
+      "output": "f052c97f5602f2931b25fa065cba4908da84804f75f9e7bb169d4133045aa185"
+    },
+    {
+      "id": "terran-dropship-five-by-five",
+      "line": "In the pipe, five by five.",
+      "faction": "terran",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/54/TerranDropshipYes00SC1.ogg/revision/latest",
+          "sha256": "783bbf3917bd89b507f6c0b9338b23e2848343b26f92a4c6cab8e55eab5a8e85"
+        }
+      ],
+      "output": "76cbefc93634ce49321c4e379990486aed6a303417cf9a65ae0f369102974ffe"
+    },
+    {
+      "id": "protoss-zealot-my-life-for-aiur",
+      "line": "My life for Aiur!",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/7/7a/ProtossZealotReady00SC1.ogg/revision/latest",
+          "sha256": "bf0eee7941b5aed9fcc64b19deeb2a5ce51f011270e27a94a746f1027a8a44e2"
+        }
+      ],
+      "output": "3a4453733b4d49da7499c04b8c5048a03c3d82ba63db685b87f6fc3d5b8f430c"
+    },
+    {
+      "id": "protoss-carrier-has-arrived",
+      "line": "Carrier has arrived.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/d/dc/ProtossCarrierReady00SC1.ogg/revision/latest",
+          "sha256": "994f0d9950146384f5481cfde102034ea9158f1cc0d73056062bf45b2df4b5f1"
+        }
+      ],
+      "output": "4f920179dd7b16c0a63a5a045581d43a021221641fcba5347cc1924855a5ca6b"
+    },
+    {
+      "id": "protoss-zealot-thus-i-serve",
+      "line": "Thus I serve.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/34/ProtossZealotYes01SC1.ogg/revision/latest",
+          "sha256": "34cef6235f71ea254bace329a9a57b2f6cb90eb147268e2d409b56cda35e4cb8"
+        }
+      ],
+      "output": "359476d21dbceca8dc1f116367afb19b35f655c71187fee44ed1b6ea488a6944"
+    },
+    {
+      "id": "protoss-zealot-honor-guide-me",
+      "line": "Honor guide me.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/5f/ProtossZealotYes02SC1.ogg/revision/latest",
+          "sha256": "3873ab097f88a46ccc9ed9c5e7a230cc05190adda9669980a4986cd99b4bf14c"
+        }
+      ],
+      "output": "b647a19b59bc9536dcaac80784f0efcdc503807d5beae873293ff32fcea69d45"
+    },
+    {
+      "id": "protoss-high-templar-it-shall-be-done",
+      "line": "It shall be done.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/2/2a/ProtossHighTemplarYes01SC1.ogg/revision/latest",
+          "sha256": "c8807a347044365b4d1cc26575ef92fd8053155f2ea74ac6482c1e5e4c7f42b6"
+        }
+      ],
+      "output": "2ecb87b07332dc51b6a9b427f01154327e8243a57c16be8b4f04504d9dff7693"
+    },
+    {
+      "id": "protoss-high-templar-my-path-is-set",
+      "line": "My path is set.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/5d/ProtossHighTemplarYes02SC1.ogg/revision/latest",
+          "sha256": "ba66314d8efefae31a3c558411f622a1dd1568c98ad3f5a392808435bb76c85d"
+        }
+      ],
+      "output": "72e371f66953ce9e723958c2e269d87d1e36f5b93446ec8aca0f2958ac0fd50f"
+    },
+    {
+      "id": "protoss-carrier-commencing",
+      "line": "Commencing.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/52/ProtossCarrierYes00SC1.ogg/revision/latest",
+          "sha256": "56020976ff9695ba064e225c880348cc2bef67f6ab14eb28865cdc3db41661aa"
+        }
+      ],
+      "output": "1c32b516278d7cb6470a79a76f6add554ab6350f9a1db26022c00a93cdb0557d"
+    },
+    {
+      "id": "protoss-dragoon-confirmed",
+      "line": "Confirmed.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/89/ProtossDragoonYes00SC1.ogg/revision/latest",
+          "sha256": "97326208e1f37b798e1f58caa791f9fa622a23014aabfe6579d46e69e9dd3abe"
+        }
+      ],
+      "output": "9dd2a22a155e4e8cf79ff0e0217aeece336a7ce1a8a2c439bfc6156a744a6153"
+    },
+    {
+      "id": "protoss-dark-templar-so-be-it",
+      "line": "So be it.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c7/ProtossDarkTemplarYes02SC1.ogg/revision/latest",
+          "sha256": "420bea6e67ef7d45c16c0c0dc161cb6a26e4a63290b097b382a60eff29088bdb"
+        }
+      ],
+      "output": "4ab4d89d7a5ab1c5942042481dd78690a7fc9b6d0308ca3dd3b5fd0c2b61b266"
+    },
+    {
+      "id": "protoss-carrier-procrastinate",
+      "line": "And still you procrastinate!",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c5/ProtossCarrierPissed01SC1.ogg/revision/latest",
+          "sha256": "7cc71b41db89166e1de4492b9a60d4204ba22e0de36c00486b8c7b57c42d8356"
+        }
+      ],
+      "output": "6d8f616ab17eb895eb0ab9d2616529734e2572049b4f058d0e88dc84322669da"
+    },
+    {
+      "id": "protoss-carrier-relieved",
+      "line": "Command, or you will be relieved.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/a/a0/ProtossCarrierPissed02SC1.ogg/revision/latest",
+          "sha256": "ac79148030405fa6d244c7c55bf5294deaeb8c6186160dee043b41b3d6d91705"
+        }
+      ],
+      "output": "8f49f80b18ecdb6cc2e3bbd3a9af837e4ee0fea31ac733795d9dc99d9d87a36a"
+    },
+    {
+      "id": "protoss-carrier-idle-threat",
+      "line": "This is not an idle threat.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c2/ProtossCarrierPissed03SC1.ogg/revision/latest",
+          "sha256": "321db20918087e1eeba166f666c74f4ddc47bd5faebea0cba8f9aff91fd993c2"
+        }
+      ],
+      "output": "e4a934d47268035f21d067b8162fb1536829e05be11f53a55daed6a43cf7e2b0"
+    },
+    {
+      "id": "protoss-high-templar-thoughts-betray",
+      "line": "Your thoughts betray you.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/87/ProtossHighTemplarPissed00SC1.ogg/revision/latest",
+          "sha256": "5e02cc3010697a8f9b04872f97f5444aee66c13e1b6ee19043a634a915848224"
+        }
+      ],
+      "output": "91f8b987a6b4ab9b6bb0aca7bff12698fc9aaeadb619b545de5636aad8f94da9"
+    },
+    {
+      "id": "protoss-high-templar-lack-of-control",
+      "line": "I find your lack of control disturbing.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/e/e2/ProtossHighTemplarPissed03SC1.ogg/revision/latest",
+          "sha256": "946d085cc1f9c80fc1e9b5300e8bcbca809b8da90450c4ea5166d47ea0a1b6ae"
+        }
+      ],
+      "output": "6551979b114eea6d80e0caabb3d889d1f6d02eebde4bf85aa43ef129a6f817f5"
+    },
+    {
+      "id": "protoss-zealot-ignorance-is-bliss",
+      "line": "It is said that ignorance is bliss. Tell me, is that true?",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/50/Zealot_Pissed06.ogg/revision/latest",
+          "sha256": "21a826c01f01c66a209cdd3645eb7f947d6128e95eb969f953085ce2e3237808"
+        }
+      ],
+      "output": "b11d6b50db9a79e5ca36b3c556f9160f013f0c23f78dd3c8a3a7e2f397e63c62"
+    },
+    {
+      "id": "protoss-carrier-instructions",
+      "line": "Instructions?",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/a/a2/ProtossCarrierWhat00SC1.ogg/revision/latest",
+          "sha256": "dc758b45258d4896e35180ce36fec1db83e042abdb496b686d73f410a39f5e0b"
+        }
+      ],
+      "output": "e8a3eddd0f3075869467cbed5058eb0e1f4b21ecd770103111ac0d6893ac1f44"
+    },
+    {
+      "id": "protoss-carrier-your-command",
+      "line": "Your command?",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/56/ProtossCarrierWhat01SC1.ogg/revision/latest",
+          "sha256": "c9e80270a864ddc2cc683c502acc2610cef925d75ac952e08306a751e28baeda"
+        }
+      ],
+      "output": "92c726046dadeb624bcf9c9c795834a6ede6ace6d377c41d900afb101d392909"
+    },
+    {
+      "id": "protoss-zealot-command-me",
+      "line": "Command me.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/7/73/Zealot_What02.ogg/revision/latest",
+          "sha256": "c4af340de225809b7833575df19ce08305ba67c26e60c710b7ea1d64c5093313"
+        }
+      ],
+      "output": "9b1bd38c61865782aa996b88bd4e42c75557014a5e353b30a2179d61883bfcdf"
+    },
+    {
+      "id": "protoss-high-templar-state-thy-bidding",
+      "line": "State thy bidding.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/2/27/ProtossHighTemplarWhat03SC1.ogg/revision/latest",
+          "sha256": "2b6ec1166eaea1e7930126249c041dff52816052145d5c79eb56c18aedcd8f52"
+        }
+      ],
+      "output": "6b41161d0df6040757b751d26dbd8c23beb76e243038bc5094abd1395d286b7c"
+    },
+    {
+      "id": "protoss-advisor-nuclear-launch",
+      "line": "Nuclear launch detected.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/cd/ProtossAdvisorUpdate04SC1.ogg/revision/latest",
+          "sha256": "d1394dd9ede6e853fb8c00e3373044f0a2e39f474438aa55deab44f54940843d"
+        }
+      ],
+      "output": "d33bd52c46dd6acd44a17ebe7422769c8cd87070a28ec58c10dd49ac6007462e"
+    },
+    {
+      "id": "protoss-advisor-under-attack",
+      "line": "We are under attack!",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/e/ea/ProtossAdvisorUpdate00SC1.ogg/revision/latest",
+          "sha256": "d68f3f81491ef0829405e465c957120307ccf2d2dbdaf72d28602ac8fc14521e"
+        }
+      ],
+      "output": "c21cdbe2bfdee8752e6d7cb8cb6737663efbe2d8e56a206bb8c5db59105eeccf"
+    },
+    {
+      "id": "protoss-dragoon-awaiting-instructions",
+      "line": "Awaiting instructions.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/55/ProtossDragoonWhat01SC1.ogg/revision/latest",
+          "sha256": "b4bb64de581fa7e8737882b138543347ead49c2d6f73a3b12e1ee8226d7ccd0f"
+        }
+      ],
+      "output": "22a863edd73cd470ac8d01496fd3d01bbb8f0661b26c4e3eb18280f56bfcc570"
+    },
+    {
+      "id": "protoss-zealot-i-long-for-combat",
+      "line": "I long for combat.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/a/a8/ProtossZealotWhat02SC1.ogg/revision/latest",
+          "sha256": "fffde5246b1a3b40d2a14fe1cf8d39757ece353a8a07b772d3ba9707398e6019"
+        }
+      ],
+      "output": "f08c497f4203a93e477205e9975b42bb596fce1ca2c29276f7cf3af8ef3d2aef"
+    },
+    {
+      "id": "protoss-dragoon-i-am-needed",
+      "line": "I am needed.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/ff/ProtossDragoonWhat07SC1.ogg/revision/latest",
+          "sha256": "929ec002486da1f5c8b3da2b774584bb2d466baeb67cc429ad35f055151d0d9f"
+        }
+      ],
+      "output": "03527a2d365dda35b8002bfc10d5b403231da0474232b8fe8a2a6139d914aa92"
+    },
+    {
+      "id": "protoss-dark-templar-im-waiting",
+      "line": "I'm waiting.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/38/ProtossDarkTemplarWhat02SC1.ogg/revision/latest",
+          "sha256": "b23f0b280ecd427c32cde00852d6cfbbae80ce04dd2bc57d336e7244a5b9a6af"
+        }
+      ],
+      "output": "123919adbc66c90ca5bfa07c411a27507157ee8469ca34d8b61d3d9b8c6ee5b9"
+    },
+    {
+      "id": "protoss-advisor-research-complete",
+      "line": "Research complete.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/b/b8/ProtossAdvisorUpdate02SC1.ogg/revision/latest",
+          "sha256": "2380eff2922b89a691d9355f46be4b48f809e43a89e761c450588cecc814b31c"
+        }
+      ],
+      "output": "b24ffcf5a88aa7322807735cd1d65fdf6da49298d933fa54e76e17f9856592f2"
+    },
+    {
+      "id": "protoss-advisor-upgrade-complete",
+      "line": "Upgrade complete.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/4/44/ProtossAdvisorUpdate06SC1.ogg/revision/latest",
+          "sha256": "0aa2cc7def9997af09522cd84b338324810dbf476f4b4b0a2e1a16a0806caf41"
+        }
+      ],
+      "output": "47dedfbc5da812ef52672e063194bcb3a6a6c0067085c0510b66d89a9ee119d5"
+    },
+    {
+      "id": "protoss-advisor-not-enough-minerals",
+      "line": "You have not enough minerals.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/38/ProtossAdvisorError00SC1.ogg/revision/latest",
+          "sha256": "e36dbbb7da3038c2c6af00ac455720e73193782649d19716ebb040bb6a36d594"
+        }
+      ],
+      "output": "02e0e94a410f5591f3d2e5ce9b0c46c50f90598b87f9129e32eef48613a4ebad"
+    },
+    {
+      "id": "protoss-advisor-not-enough-energy",
+      "line": "Not enough energy.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/b/bb/ProtossAdvisorError06SC1.ogg/revision/latest",
+          "sha256": "4f2887e7e85dc6ca8d5d138974b13d8df03b26411e6afe6f2f8aea17a74c9f52"
+        }
+      ],
+      "output": "72c4107501feb2101a706e64dca6860a65ca0e580c8484c1b51938694396d43f"
+    },
+    {
+      "id": "protoss-advisor-more-gas",
+      "line": "You require more vespene gas.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/7/7d/ProtossAdvisorError01SC1.ogg/revision/latest",
+          "sha256": "8a9cc39b5105fdf1007613926a46e85ce98a38b52b6fb47d74ae858e1bbbc5a1"
+        }
+      ],
+      "output": "d78bbcb270df8be2a3da490acac4b37166d6b7d0f069c6de7b3313eb5e3df036"
+    },
+    {
+      "id": "protoss-advisor-construct-pylons",
+      "line": "You must construct additional pylons!",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/6/60/ProtossAdvisorError02SC1.ogg/revision/latest",
+          "sha256": "3afbbc5f8df94a8b2d9a61e8caca8d37b3dea8874a6b85cef6ed2dfb74ee9279"
+        }
+      ],
+      "output": "f72a55dc04aed6f0e57b6efb02fb9ce09f4618bf4b3e3548bcb517c7e8475de2"
+    },
+    {
+      "id": "protoss-archon-merging-complete",
+      "line": "The merging is complete.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/b/b0/ProtossArchonReady00SC1.ogg/revision/latest",
+          "sha256": "db1ce953acd2dae5b0d8a1a3a761e309249b5607fe58b4fc9a0472a4f30ec9eb"
+        }
+      ],
+      "output": "9296d75dd1f3f64d99b5788f8a8c42bac0cc61b51a86ee49ead4a07032cf4330"
+    },
+    {
+      "id": "protoss-zealot-death",
+      "line": "(zealot death cry)",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/32/ProtossZealotDeath00SC1.ogg/revision/latest",
+          "sha256": "e8e6609a424a093522921f2ba2021243eeea75fc7dc8c8f4994872eb69ac09ba"
+        }
+      ],
+      "output": "eaef6588b6745697020d71cd8a869acd5129cb731acd36e270bd3caa1e2b3cc6"
+    },
+    {
+      "id": "protoss-probe-error",
+      "line": "(probe error chirp)",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/c/c9/ProtossProbeError00SC1.ogg/revision/latest",
+          "sha256": "53ed9dbd5f61ddc296a06e245cb5a55da2c2cfe3dac67f1af2e7b837e55a6b62"
+        }
+      ],
+      "output": "e7b0c1ca17cc36d88398700b9a2a03515f00baf1154fa31d98d1172e876eb32c"
+    },
+    {
+      "id": "protoss-dragoon-i-have-returned",
+      "line": "I have returned.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/5/52/ProtossDragoonReady00SC1.ogg/revision/latest",
+          "sha256": "2e783573be6193ee0f4088636cf5c8ac3bbd80e9a8b3e6d481d2d3d9ca9b3aa2"
+        }
+      ],
+      "output": "bf908a3e93af51feec2f8f2b02d0939ea6b453963c8ad8bd4b96c746cfa83144"
+    },
+    {
+      "id": "protoss-dark-templar-adun-toridas",
+      "line": "Adun Toridas.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/3/37/ProtossDarkTemplarReady00SC1.ogg/revision/latest",
+          "sha256": "3c29bc200a7a65408834ac4aa2a51d3e3cf3a0ed18a496da607e7ca9786c5ae7"
+        }
+      ],
+      "output": "55722f803ba98bd27afabead51605672247d420b1dfe986aa0f93d5cf905f967"
+    },
+    {
+      "id": "protoss-high-templar-khassar",
+      "line": "Khassar de Templari.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/4/48/ProtossHighTemplarReady00SC1.ogg/revision/latest",
+          "sha256": "a5e6e9914b1dc3b621f49dd44985bdf36f815a82737e14ee79a315c21f84cf84"
+        }
+      ],
+      "output": "ddf6a2333403327515bb2bb8986167e8f821883678a0b17753a5057d098fad68"
+    },
+    {
+      "id": "protoss-probe-death",
+      "line": "(probe destroyed)",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/f/fd/ProtossProbeDeath00SC1.ogg/revision/latest",
+          "sha256": "357e26d1a936b37cc9c1c9a296e121a69d7a8e1ccfeba68df4abfe4640b8e414"
+        }
+      ],
+      "output": "e8ca3aaefbed0b094190a52d61f13790d220a62c74d5ddd6d27cd13d1446f956"
+    },
+    {
+      "id": "protoss-zealot-en-taro-adun",
+      "line": "En Taro Adun!",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/6/6a/ProtossZealotPissed00SC1.ogg/revision/latest",
+          "sha256": "44ee9591f146e8d19ec85f35660cb4e310369f066f4ec6789539f2b0ad8aa232"
+        }
+      ],
+      "output": "c4840bc7394115174bb0098781fbadf2362d7a062f3d6cde020e244961186f3c"
+    },
+    {
+      "id": "protoss-archon-power-overwhelming",
+      "line": "Power overwhelming.",
+      "faction": "protoss",
+      "sources": [
+        {
+          "url": "https://static.wikia.nocookie.net/starcraft/images/8/88/ProtossArchonWhat03SC1.ogg/revision/latest",
+          "sha256": "8ab84116df5e2aaba0d90a7f8150423e1ab2f3a76069764f62649c3efbe22c88"
+        }
+      ],
+      "output": "8d807833982313aaa9a73c890d67b6d71c293516e92af531aaf4214db47c2c6b"
+    }
+  ]
+}

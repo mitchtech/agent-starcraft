@@ -1,0 +1,107 @@
+{
+  "kind": "illustrated-previews",
+  "dimensions": [
+    1080,
+    1080
+  ],
+  "fps": 15,
+  "sources": [
+    {
+      "path": "audio/protoss-advisor-construct-pylons.wav",
+      "bytes": 158246,
+      "sha256": "f72a55dc04aed6f0e57b6efb02fb9ce09f4618bf4b3e3548bcb517c7e8475de2"
+    },
+    {
+      "path": "audio/protoss-advisor-research-complete.wav",
+      "bytes": 78540,
+      "sha256": "b24ffcf5a88aa7322807735cd1d65fdf6da49298d933fa54e76e17f9856592f2"
+    },
+    {
+      "path": "audio/protoss-zealot-my-life-for-aiur.wav",
+      "bytes": 112714,
+      "sha256": "3a4453733b4d49da7499c04b8c5048a03c3d82ba63db685b87f6fc3d5b8f430c"
+    },
+    {
+      "path": "audio/terran-adjutant-not-enough-minerals.wav",
+      "bytes": 117584,
+      "sha256": "7c94d3161169b1b2a9e49ceb07dbb66e82e650256b95333c3bba4d6ec3b028f1"
+    },
+    {
+      "path": "audio/terran-adjutant-nuclear-launch.wav",
+      "bytes": 141508,
+      "sha256": "f55133ba05d92d650ed1c2f555e8dd59130c56f8e016cd2612cee21d01b501b8"
+    },
+    {
+      "path": "audio/terran-scv-good-to-go.wav",
+      "bytes": 109332,
+      "sha256": "b7f504b4d0d2dfbe202852c5a63658fb07b0b3e90819b1919f325dd0bd5baafa"
+    },
+    {
+      "path": "audio/terran-scv-jobs-finished.wav",
+      "bytes": 62248,
+      "sha256": "dbe84c010f9f3e52dc2df0a235127bcf42e0f5ef04f26e1ed05389c0cd0a0c5b"
+    },
+    {
+      "path": "audio/terran-scv-orders-captain.wav",
+      "bytes": 69838,
+      "sha256": "803ac577d9d56d98dd65395fc9dfba77fff7035df976d0ae0665bfb402bacd5e"
+    },
+    {
+      "path": "site/fonts/oxanium-latin-700-normal.woff2",
+      "bytes": 8776,
+      "sha256": "19ac72d5a8b3b31316133df3dc8e5b47f93dfc4b85245b776dd6d70fc4b3504c"
+    },
+    {
+      "path": "site/fonts/exo-2-latin-400-normal.woff2",
+      "bytes": 16720,
+      "sha256": "49c9cd329161f5c5feed3ae80a788199f2dce127c00828e027a61261cf602491"
+    },
+    {
+      "path": "site/fonts/exo-2-latin-700-normal.woff2",
+      "bytes": 17220,
+      "sha256": "96c87b1597aed754e0ad45970883774e851a390788e7fba7b3f49f8d1f6e5a6b"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "assets/promotion/faction-preview.mp4",
+      "bytes": 275855,
+      "sha256": "cd12a410be40c9d63d93e97aff6b5ef99b30441075a29886d48af0afbc88ff67"
+    },
+    {
+      "path": "assets/promotion/faction-preview.png",
+      "bytes": 99177,
+      "sha256": "d37176a800303a6ef5234fa7e9cd061eb26b57e7790b2d3d7a0a9c72086b8442"
+    },
+    {
+      "path": "assets/promotion/faction-preview.srt",
+      "bytes": 450,
+      "sha256": "7a194d83dc96fbf2f50289c4d60035ea53ff1a59e5201abc391bac62f18c0c37"
+    },
+    {
+      "path": "assets/promotion/sound-preview.mp4",
+      "bytes": 430248,
+      "sha256": "3f88f5298e73477fa9fd8babd4469d0e536ccc5319cd0398a013f5c566a79f32"
+    },
+    {
+      "path": "assets/promotion/sound-preview.png",
+      "bytes": 77891,
+      "sha256": "369a35dbec959057d834a3cea82d369c932aac2923e11b980bc9739112ea46e3"
+    },
+    {
+      "path": "assets/promotion/sound-preview.srt",
+      "bytes": 795,
+      "sha256": "000404fdcb7bb248dd413df56d72cdddc401dab633d3334c151c4dd2aead9d60"
+    }
+  ],
+  "tools": {
+    "Pillow": "12.3.0",
+    "ffmpeg": "ffmpeg version 9.0.2 Copyright (c) 2000-2026 the FFmpeg developers"
+  },
+  "credentials_used": [],
+  "limitations": [
+    "Not a live host or physical audio recording.",
+    "No claim of hook execution in these videos.",
+    "Audio is assembled from the bundled, separately noticed StarCraft clips."
+  ]
+}

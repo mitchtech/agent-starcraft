@@ -1,0 +1,94 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-sessionstart",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-beforeagent",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-afteragent",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-notification",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "PreCompress": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-precompress",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "name": "agent-starcraft-sessionend",
+            "command": "node -e \"import(require('node:url').pathToFileURL(require('node:path').join(process.env.AGENT_STARCRAFT_PLUGIN_ROOT,'scripts','starcraft.mjs')).href).then(m=>m.main(['hook','--agent','gemini'])).then(c=>{process.exitCode=c}).catch(()=>{console.log('{}')})\"",
+            "env": {
+              "AGENT_STARCRAFT_PLUGIN_ROOT": "${extensionPath}"
+            },
+            "timeout": 5000
+          }
+        ]
+      }
+    ]
+  }
+}

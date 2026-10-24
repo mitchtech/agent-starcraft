@@ -1,0 +1,68 @@
+{
+  "name": "agent-starcraft",
+  "version": "0.1.0",
+  "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!",
+  "type": "module",
+  "bin": {
+    "agent-starcraft": "scripts/starcraft.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check scripts/starcraft.mjs && node --check scripts/pet.mjs && node --check scripts/build-site.mjs && node --check site/app.js && node --check site/theme.js && node --check scripts/build-gemini.mjs && node --check scripts/check-package.mjs && node scripts/check-project.mjs",
+    "doctor": "node scripts/starcraft.mjs doctor",
+    "site": "node scripts/build-site.mjs",
+    "gemini": "node scripts/build-gemini.mjs",
+    "test:package": "node scripts/check-package.mjs"
+  },
+  "files": [
+    "scripts/starcraft.mjs",
+    "scripts/pet.mjs",
+    "audio",
+    "pets",
+    "plugin.json",
+    ".claude-plugin",
+    ".agents/plugins",
+    "hooks",
+    "docs",
+    "CHANGELOG.md",
+    "assets/previews/icon.png",
+    "assets/previews/banner.png",
+    "assets/previews/banner-light.png",
+    "assets/previews/terran-scv-good-to-go.gif",
+    "assets/previews/terran-scv-jobs-finished.gif",
+    "assets/previews/terran-adjutant-not-enough-minerals.gif",
+    "assets/previews/terran-adjutant-nuclear-launch.gif",
+    "assets/previews/protoss-advisor-construct-pylons.gif",
+    "assets/previews/protoss-zealot-my-life-for-aiur.gif",
+    "skills",
+    "gemini-extension.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchtech/agent-starcraft.git"
+  },
+  "homepage": "https://mitchtech.github.io/agent-starcraft/",
+  "bugs": "https://github.com/mitchtech/agent-starcraft/issues",
+  "author": "Michael J. Mitchell <michael@mitchtech.net>",
+  "license": "MIT",
+  "keywords": [
+    "starcraft",
+    "starcraft-brood-war",
+    "terran",
+    "protoss",
+    "scv",
+    "probe",
+    "audio",
+    "notifications",
+    "coding-agents",
+    "claude-code",
+    "codex",
+    "gemini-cli",
+    "gemini-cli-extension",
+    "codex-pet",
+    "custom-pets"
+  ]
+}

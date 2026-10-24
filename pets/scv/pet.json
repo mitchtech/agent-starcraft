@@ -1,0 +1,7 @@
+{
+  "id": "scv",
+  "displayName": "SCV",
+  "description": "A Terran construction worker in a bulky industrial exosuit with a welding arm and a glowing visor.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}
