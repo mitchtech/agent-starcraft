@@ -1,6 +1,6 @@
 {
   "name": "agent-starcraft",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!",
   "type": "module",
   "bin": {

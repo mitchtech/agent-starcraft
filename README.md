@@ -186,7 +186,8 @@ pet in the meantime. See [Codex pets](docs/pets.md).
 
 ## Sounds
 
-Each event lists the Terran lines first, then the Protoss lines.
+Each event lists the Terran lines first, then the Protoss lines. [Sound notes](docs/sounds.md)
+explain why each line was chosen and which alternatives fit.
 
 | Shared event | When | Terran / Protoss | Default |
 |---|---|---|---|

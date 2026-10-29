@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 - 2026-10-28
+
+Structured data for the site and notes on how each line was chosen.
+
+- Add schema.org `SoftwareApplication` structured data to the site, matching Agent Johnny 5.
+- Add [sound notes](docs/sounds.md): why each event plays its lines, alternatives that fit, and how to change or add a clip.
+
 ## 0.1.0 - 2026-10-24
 
 StarCraft sound cues for coding agents: Job's finished, not enough minerals, and nuclear launch detected. Built on the Agent Warcraft v0.3.0 runtime.
