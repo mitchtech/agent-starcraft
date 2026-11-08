@@ -53,6 +53,15 @@ def validate(pet_id="scv"):
     if any(data[i + 3] == 0 and any(data[i:i + 3]) for i in range(0, len(data), 4)):
         raise ValueError("Transparent pixels contain RGB residue")
     revision = json.loads(REVISION.read_text(encoding="utf-8"))
+    original_path = ROOT / revision["source"]["file"]
+    if hashlib.sha256(original_path.read_bytes()).hexdigest() != revision["source"]["sha256"]:
+        raise ValueError(f"{pet_id} original artwork checksum mismatch")
+    for name, expected in revision["active"].items():
+        if hashlib.sha256((PET / name).read_bytes()).hexdigest() != expected:
+            raise ValueError(f"{pet_id} active {name} checksum mismatch")
+    with Image.open(original_path) as original:
+        if original.convert("RGBA").tobytes() != image.tobytes():
+            raise ValueError(f"{pet_id} active artwork differs from the original pixels")
     web_path = ROOT / revision["web"]["file"]
     if hashlib.sha256(web_path.read_bytes()).hexdigest() != revision["web"]["sha256"]:
         raise ValueError("Web export checksum mismatch; run python3 scripts/export-pet-web.py")

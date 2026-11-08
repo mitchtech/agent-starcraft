@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 - 2026-11-08
+
+- Bundle the original Protoss Probe artwork, with independent installation, a nine-row web export, and release ZIPs. Preserve the source PNG and every decoded pixel.
+- Preview both the SCV and Probe on the site and document their separate installation and provenance.
+
 ## 0.2.0 - 2026-11-07
 
 Meet the SCV: a native custom pet for Codex desktop and Codex CLI.

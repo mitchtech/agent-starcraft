@@ -1,7 +1,7 @@
 {
   "name": "agent-starcraft",
-  "version": "0.2.0",
-  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus a native SCV Codex pet: Job's finished!",
+  "version": "0.3.0",
+  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus native SCV and Probe Codex pets: Job's finished!",
   "type": "module",
   "bin": {
     "agent-starcraft": "scripts/starcraft.mjs"
@@ -43,7 +43,13 @@
     "assets/previews/protoss-advisor-construct-pylons.gif",
     "assets/previews/protoss-zealot-my-life-for-aiur.gif",
     "skills",
-    "gemini-extension.json"
+    "gemini-extension.json",
+    "assets/previews/probe-idle.gif",
+    "assets/previews/probe-working.gif",
+    "assets/previews/probe-waiting.gif",
+    "assets/previews/probe-review.gif",
+    "assets/previews/probe-failure.gif",
+    "assets/previews/probe-idle.png"
   ],
   "repository": {
     "type": "git",
