@@ -41,5 +41,4 @@ missing-art behavior.
 keep preview generation reproducible.
 
 Release and discovery procedures live in [distribution maintenance](docs/distribution.md).
-The [promotion kit](docs/promotion/README.md) contains public post drafts,
-captioned media, install guidance, and the owner-run campaign calendar.
+`scripts/build-media.py` rebuilds the captioned preview media in `assets/promotion/`.
