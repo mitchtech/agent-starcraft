@@ -15,13 +15,14 @@
   <a href="audio/NOTICE.md"><img src="https://img.shields.io/badge/audio-see_notice-4fb3ff?labelColor=0e1216" alt="Audio: see notice"></a>
 </p>
 
-<p align="center"><b>Your coding agent says <i>Job's finished.</i> when it finishes, <i>Not enough minerals.</i> when your usage runs out, and <i>Nuclear launch detected.</i> before a force push. Codex gets an SCV to keep it company.</b></p>
+<p align="center"><b>Your coding agent says <i>Job's finished.</i> when it finishes, <i>Not enough minerals.</i> when your usage runs out, and <i>Nuclear launch detected.</i> before a force push. Codex gets an SCV or a Probe to keep it company.</b></p>
 
 <p align="center">
   <a href="https://mitchtech.github.io/agent-starcraft/"><b>Hear every clip</b></a> ·
   <a href="#sounds">Event map</a> ·
   <a href="#minerals-and-supply-meters">Minerals and supply meters</a> ·
   <a href="https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip">Download the SCV</a> ·
+  <a href="https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-probe-pet.zip">Download the Probe</a> ·
   <a href="https://github.com/mitchtech/agent-starcraft/releases">Releases</a> ·
   <a href="https://github.com/mitchtech/agent-navi">Agent Navi</a> ·
   <a href="https://github.com/mitchtech/agent-johnny5">Agent Johnny 5</a> ·
@@ -189,21 +190,24 @@ playback to a detached worker so the agent can continue immediately.
 
 ## Codex pets
 
-<p align="center"><img src="assets/previews/scv-working.gif" width="192" alt="The SCV pet drilling"></p>
+<p align="center"><img src="assets/previews/scv-working.gif" width="192" alt="The SCV pet drilling"> <img src="assets/previews/probe-working.gif" width="192" alt="The Probe pet working"></p>
 
-A native custom pet for Codex desktop and Codex CLI: the Terran **SCV**, in blue
+Native custom pets for Codex desktop and Codex CLI: the Terran **SCV**, in blue
 industrial armor with an amber cockpit, a drill, and a utility claw. It has
 nine animations and sixteen look directions. Codex animates it from its own
 activity: it drills while the agent works, waits when it needs you, and slumps
 when something fails. Pets and sounds are independent; install the SCV with
-either faction's voice, or without sounds. The Protoss **Probe** keeps a
-reserved slot until its art ships.
+either faction's voice, or without sounds. The Protoss **Probe** has a golden
+wedge hull, articulated prongs, and a cyan sensor. Both pets have the same
+animation states and look directions.
 
 Without Node.js, from the latest release:
 
 ```bash
 curl -LO https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip
 unzip agent-starcraft-scv-pet.zip -d ~/.codex/pets
+curl -LO https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-probe-pet.zip
+unzip agent-starcraft-probe-pet.zip -d ~/.codex/pets
 ```
 
 With the standalone command, or from a checkout with `node scripts/starcraft.mjs`:
@@ -211,9 +215,11 @@ With the standalone command, or from a checkout with `node scripts/starcraft.mjs
 ```bash
 agent-starcraft pet install
 agent-starcraft doctor --pet
+agent-starcraft pet install probe
+agent-starcraft doctor --pet probe
 ```
 
-Then refresh the Codex desktop pet picker, or enter `/pets SCV` in a
+Then refresh the Codex desktop pet picker, or enter `/pets SCV` or `/pets Probe` in a
 graphics-capable Codex CLI terminal. With `CODEX_HOME` set, use
 `$CODEX_HOME/pets` instead. Installation leaves pet selection and sound
 configuration unchanged; `--replace` keeps a backup of a different existing pet.

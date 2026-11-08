@@ -1,7 +1,7 @@
 {
   "name": "starcraft",
-  "version": "0.2.0",
-  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus a native SCV Codex pet: Job's finished!",
+  "version": "0.3.0",
+  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus native SCV and Probe Codex pets: Job's finished!",
   "icon": "./assets/previews/icon.png",
   "author": {
     "name": "Michael J. Mitchell",

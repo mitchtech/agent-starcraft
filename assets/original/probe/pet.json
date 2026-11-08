@@ -1,0 +1,7 @@
+{
+  "id": "probe",
+  "displayName": "Probe",
+  "description": "A hovering StarCraft II-era Protoss Probe with a golden wedge hull, curved prongs, and a cyan sensor.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}
