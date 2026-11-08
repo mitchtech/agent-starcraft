@@ -1,6 +1,6 @@
 {
   "name": "agent-starcraft",
-  "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!",
+  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus a native SCV Codex pet: Job's finished!",
   "owner": {
     "name": "mitchtech",
     "url": "https://github.com/mitchtech"
@@ -9,7 +9,7 @@
     {
       "name": "starcraft",
       "source": "./",
-      "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!"
+      "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus a native SCV Codex pet: Job's finished!"
     }
   ]
 }

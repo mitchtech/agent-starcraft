@@ -32,11 +32,12 @@ root default hook file to Claude/Codex installations.
 
 `audio/` holds the canonical clips; `audio/sources.json` and
 `scripts/build-audio.py` record and reproduce them (ffmpeg required for
-rebuilds). `pets/scv` and `pets/probe` hold manifest-only v2 pet stubs; art
-lands later as a data-only change, and validation, previews, and packaging
-enable themselves once a `spritesheet.webp` exists. Installer tests cover the
-not-bundled stubs and use `tests/fixtures/pet` for real-art, conflict, and
-missing-art behavior.
+rebuilds). `pets/scv` holds the active v2 SCV bundle; `pets/probe` remains a
+manifest-only stub. Preserve original artwork in `assets/original/<id>` and
+record source, active, and web-export hashes in `assets/<id>-pet-revision.json`.
+Validation, previews, and packaging enable themselves once a
+`spritesheet.webp` exists. Installer tests exercise the real SCV bundle and
+use `tests/fixtures/pet` for conflict and missing-art behavior.
 `assets/previews` is generated from the clips by `scripts/build-assets.py`;
 keep preview generation reproducible.
 

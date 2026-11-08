@@ -1,7 +1,7 @@
 {
   "id": "scv",
   "displayName": "SCV",
-  "description": "A Terran construction worker in a bulky industrial exosuit with a welding arm and a glowing visor.",
+  "description": "A hardworking StarCraft II-era Terran SCV with blue industrial armor, an amber cockpit, drill, and utility claw.",
   "spriteVersionNumber": 2,
   "spritesheetPath": "spritesheet.webp"
 }

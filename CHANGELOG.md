@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.0 - 2026-11-07
+
+Meet the SCV: a native custom pet for Codex desktop and Codex CLI.
+
+- Bundle the SCV v2 pet with nine animations and sixteen look directions, preserve the original PNG in `assets/original/scv`, and record lossless WebP provenance and artwork licensing (CC BY 4.0). Releases now attach `agent-starcraft-scv-pet.zip` and the nine-row `agent-starcraft-scv-pet-web.webp`.
+- Showcase the pet on the site: the Terran hero monitor shows the SCV acting out each cue, with the waveform along its feet, and a pet section plays every animation and look direction, with ZIP, CLI, and web-atlas install paths. The Protoss portrait keeps its emblem and the Probe slot shows its art as pending.
+- The site reads which pets have art from a `pets/index.json` written by `scripts/build-site.mjs`, so Probe art will appear without code changes.
+- Add SCV animation GIFs to the README, put the SCV on the banners, social card, touch icon, and plugin icon, and add a captioned `pet-preview.mp4`.
+
 ## 0.1.1 - 2026-10-28
 
 Structured data for the site and notes on how each line was chosen.

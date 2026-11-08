@@ -1,7 +1,7 @@
 {
   "name": "agent-starcraft",
-  "version": "0.1.1",
-  "description": "StarCraft SCV and Probe sound notifications for coding agents, with a Terran/Protoss toggle and Codex pet slots: Job's finished!",
+  "version": "0.2.0",
+  "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus a native SCV Codex pet: Job's finished!",
   "type": "module",
   "bin": {
     "agent-starcraft": "scripts/starcraft.mjs"
@@ -29,6 +29,11 @@
     "docs",
     "CHANGELOG.md",
     "assets/previews/icon.png",
+    "assets/previews/scv-idle.gif",
+    "assets/previews/scv-working.gif",
+    "assets/previews/scv-waiting.gif",
+    "assets/previews/scv-review.gif",
+    "assets/previews/scv-failure.gif",
     "assets/previews/banner.png",
     "assets/previews/banner-light.png",
     "assets/previews/terran-scv-good-to-go.gif",
@@ -63,6 +68,8 @@
     "gemini-cli",
     "gemini-cli-extension",
     "codex-pet",
-    "custom-pets"
+    "custom-pets",
+    "pet",
+    "sprite-animation"
   ]
 }

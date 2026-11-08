@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="previews/touch-icon.png">
   <link rel="preload" href="fonts/oxanium-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/exo-2-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="pets/scv/spritesheet.webp" as="image" type="image/webp">
   <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
@@ -52,7 +53,7 @@
         <span class="resource gas" title="Vespene gas: previews played"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1c3 4 5 6.5 5 9a5 5 0 0 1-10 0c0-2.5 2-5 5-9Z"/></svg><output id="gas">0</output></span>
         <span class="resource supply" title="Supply: cues on by default out of all cues"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 13V7l6-4 6 4v6Z"/></svg><output>11/16</output></span>
       </div>
-      <nav aria-label="Main"><a href="#listen">Event map</a><a href="#minerals-meter">Meters</a><a href="#install">Install</a><a href="https://github.com/mitchtech/agent-starcraft">GitHub <span aria-hidden="true">↗</span></a>
+      <nav aria-label="Main"><a href="#listen">Event map</a><a href="#pet">Codex pet</a><a href="#minerals-meter">Meters</a><a href="#install">Install</a><a href="https://github.com/mitchtech/agent-starcraft">GitHub <span aria-hidden="true">↗</span></a>
         <button id="faction-toggle" class="toggle faction-toggle" aria-pressed="false"><span class="terran-label">Terran</span><span class="protoss-label">Protoss</span><span class="visually-hidden"> faction: switch voices and colors</span></button>
         <button id="theme-toggle" class="toggle theme-toggle" aria-pressed="false"><span class="dark-label">Night</span><span class="light-label">Day</span><span class="visually-hidden"> theme</span></button>
       </nav>
@@ -70,14 +71,14 @@
       </div>
       <figure class="portrait-panel" aria-labelledby="portrait-caption">
         <div class="frame">
-          <button id="portrait" class="portrait" aria-describedby="portrait-caption"><canvas id="scope" width="480" height="360" role="img" aria-label="Unit portrait monitor showing the waveform of the line that is playing"></canvas><span class="visually-hidden">Talk to the unit</span></button>
+          <button id="portrait" class="portrait" aria-describedby="portrait-caption"><span id="portrait-sprite" class="sprite" role="img" aria-label="The faction's worker pet, acting out each cue"></span><canvas id="scope" width="480" height="360" role="img" aria-label="Unit portrait monitor showing the waveform of the line that is playing"></canvas><span class="visually-hidden">Talk to the unit</span></button>
           <div class="unit-card" aria-live="polite">
             <p class="unit-name"><output id="readout-unit"><span class="terran-only">SCV</span><span class="protoss-only">Carrier</span></output></p>
             <p class="unit-line"><output id="readout-line"><span class="terran-only">Reporting for duty.</span><span class="protoss-only">Your command?</span></output></p>
             <p class="unit-meta"><output id="readout-event">Click the portrait</output><output id="readout-length"></output></p>
           </div>
         </div>
-        <figcaption id="portrait-caption">Click the portrait. Then keep clicking: the third click inside ten seconds is exactly how the <code>annoyed</code> cue works, and how every StarCraft unit has always answered an impatient commander.</figcaption>
+        <figcaption id="portrait-caption">Click the portrait. Then keep clicking: the third click inside ten seconds is exactly how the <code>annoyed</code> cue works, and how every StarCraft unit has always answered an impatient commander. <span class="terran-only">The SCV is a bundled <a href="#pet">Codex pet</a>, acting out each cue.</span></figcaption>
         <div class="command-card" id="command-card" role="group" aria-label="Command card: press a hotkey or click to hear a line"></div>
       </figure>
     </section>
@@ -137,15 +138,19 @@
     <section class="pet-section" id="pet" aria-labelledby="pet-title"><div class="wrap pet-grid">
       <div class="pet-copy">
         <p class="eyebrow">Codex pets</p>
-        <h2 id="pet-title">Coming <em>soon.</em></h2>
-        <p>The SCV and the Probe have reserved slots as native Codex pets. The manifests, installer, validation, and release packaging are ready; the artwork is not bundled yet. Until it ships, <code>agent-starcraft pet install</code> says so and changes nothing. Codex's own pet feature can make you one in the meantime.</p>
-        <p>Pets and sounds are independent. When the art lands, install either pet, both, or neither, with either faction's voice.</p>
-        <div class="actions"><a class="text-link" href="https://github.com/mitchtech/agent-starcraft/blob/main/docs/pets.md">Pet status and format <span aria-hidden="true">↗</span></a></div>
+        <h2 id="pet-title">SCV <em>good to go.</em></h2>
+        <p>A native custom pet for Codex desktop and Codex CLI: the Terran SCV, in blue industrial armor with an amber cockpit, a drill, and a utility claw. It has nine animations and sixteen look directions. Codex animates it from its own activity, so it drills while the agent works, waits when it needs you, and slumps when something fails.</p>
+        <p>Pets and sounds are independent. Install the SCV with either faction's voice, or without sounds at all. Installing a pet never selects it and never touches your sound settings. The Protoss Probe's slot is reserved; its art is still pending.</p>
+        <div class="actions"><a class="button primary" href="https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip">Download the SCV <span aria-hidden="true">↓</span></a><a class="text-link" href="#pet-install">Install commands</a></div>
+        <p class="fineprint">Creating a web pet? <a href="exports/agent-starcraft-scv-pet-web.webp" download>Download the SCV web atlas</a> for a separate account upload. <a href="https://github.com/mitchtech/agent-starcraft/blob/main/docs/pets.md#web-upload">Upload and attribution guide</a>. Artwork: <a href="https://github.com/mitchtech/agent-starcraft/blob/main/pets/scv/NOTICE.md">CC BY 4.0</a>.</p>
       </div>
-      <div class="pet-slots">
-        <div class="slot terran-slot"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#emblem-terran"/></svg><p class="slot-name">SCV</p><p class="fineprint">Terran worker. Manifest ready, art pending.</p></div>
-        <div class="slot protoss-slot"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#emblem-protoss"/></svg><p class="slot-name">Probe</p><p class="fineprint">Protoss worker. Manifest ready, art pending.</p></div>
-      </div>
+      <figure class="pet-stage">
+        <div class="pet-choices" role="group" aria-label="Choose a pet"><button data-pet-choice="scv" aria-pressed="true">SCV</button><button data-pet-choice="probe" aria-pressed="false">Probe</button></div>
+        <div class="stage-frame"><div id="stage-sprite" class="sprite big" role="img" aria-label="The SCV, a Terran construction worker in blue armor with an amber cockpit, a drill, and a claw"></div><div class="stage-pending"><svg viewBox="0 0 64 64" aria-hidden="true"><use href="#emblem-protoss"/></svg><p>Probe art pending</p></div></div>
+        <figcaption><output id="state-label">The SCV is idle</output><button id="motion-toggle" class="copy" aria-pressed="false">Pause animation</button></figcaption>
+        <div class="state-group" role="group" aria-label="Animations"><button data-state="idle" aria-pressed="true">Idle</button><button data-state="working" aria-pressed="false">Working</button><button data-state="waiting" aria-pressed="false">Waiting</button><button data-state="review" aria-pressed="false">Review</button><button data-state="failure" aria-pressed="false">Blocked</button><button data-state="moving-right" aria-pressed="false">Move right</button><button data-state="moving-left" aria-pressed="false">Move left</button><button data-state="waving" aria-pressed="false">Wave</button><button data-state="jumping" aria-pressed="false">Jump</button></div>
+        <details class="look-group"><summary>Sixteen look directions</summary><div role="group" aria-label="Look directions"><button data-state="look-0" aria-pressed="false">Up</button><button data-state="look-1" aria-pressed="false">Up-right 1</button><button data-state="look-2" aria-pressed="false">Up-right 2</button><button data-state="look-3" aria-pressed="false">Up-right 3</button><button data-state="look-4" aria-pressed="false">Right</button><button data-state="look-5" aria-pressed="false">Down-right 1</button><button data-state="look-6" aria-pressed="false">Down-right 2</button><button data-state="look-7" aria-pressed="false">Down-right 3</button><button data-state="look-8" aria-pressed="false">Down</button><button data-state="look-9" aria-pressed="false">Down-left 1</button><button data-state="look-10" aria-pressed="false">Down-left 2</button><button data-state="look-11" aria-pressed="false">Down-left 3</button><button data-state="look-12" aria-pressed="false">Left</button><button data-state="look-13" aria-pressed="false">Up-left 1</button><button data-state="look-14" aria-pressed="false">Up-left 2</button><button data-state="look-15" aria-pressed="false">Up-left 3</button></div></details>
+      </figure>
     </div></section>
 
     <section class="install-section" id="install" aria-labelledby="install-title"><div class="wrap">
@@ -156,6 +161,15 @@ claude plugin install starcraft@agent-starcraft</code></pre></div>
         <div class="command"><div class="command-head"><h3>Codex</h3><button class="copy" data-copy="codex-command" aria-label="Copy Codex commands">Copy</button></div><pre id="codex-command"><code>codex plugin marketplace add mitchtech/agent-starcraft
 codex plugin add starcraft@agent-starcraft</code></pre></div>
         <div class="command"><div class="command-head"><h3>Gemini CLI</h3><button class="copy" data-copy="gemini-command" aria-label="Copy Gemini CLI command">Copy</button></div><pre id="gemini-command"><code>gemini extensions install https://github.com/mitchtech/agent-starcraft</code></pre></div>
+      </div>
+      <div id="pet-install" class="pet-install">
+        <div class="command-grid two">
+          <div class="command"><div class="command-head"><h3>SCV pet ZIP, no Node</h3><button class="copy" data-copy="pet-zip-command" aria-label="Copy pet ZIP commands">Copy</button></div><pre id="pet-zip-command"><code>curl -LO https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip
+unzip agent-starcraft-scv-pet.zip -d ~/.codex/pets</code></pre></div>
+          <div class="command"><div class="command-head"><h3>SCV pet installer</h3><button class="copy" data-copy="pet-cli-command" aria-label="Copy pet installer commands">Copy</button></div><pre id="pet-cli-command"><code>npm install -g github:mitchtech/agent-starcraft#v__VERSION__
+agent-starcraft pet install</code></pre></div>
+        </div>
+        <p class="fineprint">Then refresh the Codex desktop pet picker, or enter <code>/pets SCV</code> in a graphics-capable Codex CLI terminal. With <code>CODEX_HOME</code> set, unzip into <code>$CODEX_HOME/pets</code>. The installer keeps a backup with <code>--replace</code> and never selects the pet for you. <a href="https://github.com/mitchtech/agent-starcraft/blob/main/docs/pets.md">Pet guide</a></p>
       </div>
       <p class="fineprint">Review and trust the sound hooks in Codex's hook settings. Running a sibling plugin too (Navi, Johnny 5, Warcraft, Rocky, or Star Wars)? Enable one per host so they do not talk over each other. <a href="https://github.com/mitchtech/agent-starcraft/blob/main/README.md#other-agents">Other agents use the standalone event interface.</a></p>
       <div class="install-extra">

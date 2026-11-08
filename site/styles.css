@@ -294,16 +294,39 @@ section { scroll-margin-top: 90px; }
 .ledger-rows span { font: 700 0.75rem/1 var(--body); letter-spacing: 0.12em; text-transform: uppercase; color: var(--em); text-align: right; }
 .ledger-rows .chip { grid-column: 1 / -1; justify-self: start; }
 
-/* Codex pets: reserved slots until the art lands */
+/* Sprite: one 192 x 208 cell of the Codex v2 atlas, scaled with --scale. app.js sets --sheet once the pet's atlas loads. */
+.sprite { --scale: 1; display: block; width: calc(192px * var(--scale)); height: calc(208px * var(--scale)); background: var(--sheet, none) 0 0 / calc(1536px * var(--scale)) calc(2288px * var(--scale)) no-repeat; }
+.portrait .sprite { --scale: 0.8; position: absolute; left: 50%; bottom: 6%; transform: translateX(-50%); z-index: 1; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.75)); display: none; }
+/* With pet art the worker fills the monitor and the waveform runs along its feet; without it, the emblem fills the whole monitor. */
+:root[data-pet-art] .portrait .sprite { display: block; }
+:root[data-pet-art] .portrait canvas { position: absolute; left: 0; right: 0; bottom: 0; height: 30%; z-index: 2; mix-blend-mode: screen; }
+:root[data-pet-art] .portrait { background: radial-gradient(ellipse at 50% 72%, color-mix(in srgb, var(--console-glow) 18%, transparent), transparent 60%), var(--monitor); }
+.portrait::after { z-index: 3; }
+
+/* Codex pet section */
 .pet-section { padding-block: clamp(3.5rem, 8vw, 6rem); border-top: 2px solid var(--line); background: radial-gradient(ellipse at 75% 40%, color-mix(in srgb, var(--crystal) 10%, transparent), transparent 60%); }
-.pet-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.pet-grid { display: grid; grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr); gap: clamp(2rem, 5vw, 4rem); align-items: center; }
 .pet-copy > p:not(.eyebrow):not(.fineprint) { color: var(--muted); }
-.pet-slots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-.slot { display: grid; justify-items: center; text-align: center; gap: 0.3rem; padding: 1.5rem 1rem; border: 2px dashed var(--line); border-radius: 3px; background: color-mix(in srgb, var(--panel) 80%, transparent); }
-.slot svg { width: 72px; height: 72px; color: var(--em); opacity: 0.85; }
-.slot-name { margin: 0.4rem 0 0; font-size: 1.3rem; }
-.slot .fineprint { margin: 0; }
-:root:not([data-faction="protoss"]) .terran-slot, :root[data-faction="protoss"] .protoss-slot { border-style: solid; border-color: var(--line-hi); }
+.pet-stage { margin: 0; display: grid; gap: 0.8rem; min-width: 0; }
+.pet-choices { display: inline-flex; justify-self: start; border: 2px solid var(--line); border-radius: 2px; overflow: hidden; background: var(--monitor); }
+.pet-choices button { font: 700 0.85rem/1 var(--body); letter-spacing: 0.08em; text-transform: uppercase; padding: 0.6rem 1rem; border: 0; background: transparent; color: var(--monitor-dim); cursor: pointer; }
+.pet-choices button[aria-pressed="true"] { background: var(--console-trim); color: #0e1216; }
+.stage-frame { position: relative; display: grid; place-items: end center; min-height: 360px; padding: 1rem; border: 3px solid var(--console-trim); border-radius: 4px; background: radial-gradient(ellipse at 50% 80%, color-mix(in srgb, var(--console-glow) 20%, transparent), transparent 55%), var(--monitor); box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.9), 0 14px 36px var(--shadow); overflow: hidden; }
+.stage-frame::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px); pointer-events: none; }
+.sprite.big { --scale: 1.55; filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.7)); }
+.stage-pending { display: none; place-self: center; text-align: center; color: var(--monitor-dim); font: 700 0.9rem/1.3 var(--body); letter-spacing: 0.12em; text-transform: uppercase; }
+.stage-pending svg { width: 96px; height: 96px; color: #4fd3ff; opacity: 0.6; }
+.stage-frame.pending .sprite { display: none; }
+.stage-frame.pending .stage-pending { display: block; }
+.pet-stage figcaption { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font: 700 1.05rem/1.3 var(--body); }
+.state-group, .look-group > div { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.state-group button, .look-group button { font: 700 0.85rem/1.2 var(--body); color: var(--ink); background: color-mix(in srgb, var(--panel-hi) 70%, transparent); border: 1px solid var(--line); border-radius: 2px; padding: 0.42rem 0.7rem; cursor: pointer; }
+.state-group button[aria-pressed="true"], .look-group button[aria-pressed="true"] { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 18%, var(--panel)); }
+.state-group:has(button:disabled), .look-group:has(button:disabled) { opacity: 0.5; }
+.look-group summary { cursor: pointer; color: var(--muted); font-weight: 700; margin-bottom: 0.5rem; }
+#motion-toggle:disabled { opacity: 0.6; cursor: default; }
+.pet-install { margin-top: 1.25rem; }
+.command-grid.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 /* Install */
 .install-section { padding-block: clamp(3.5rem, 8vw, 6rem); background: color-mix(in srgb, var(--bg-deep) 72%, transparent); border-block: 2px solid var(--line); }
@@ -351,7 +374,7 @@ footer p { margin: 0.3rem 0; }
 .lost > p { color: var(--muted); font-size: 1.15rem; }
 
 @media (max-width: 960px) {
-  .hero, .alarm-grid, .meter-section, .compatibility, .install-extra, .pet-grid { grid-template-columns: minmax(0, 1fr); }
+  .hero, .alarm-grid, .meter-section, .compatibility, .install-extra, .pet-grid, .command-grid.two { grid-template-columns: minmax(0, 1fr); }
   .command-grid { grid-template-columns: minmax(0, 1fr); }
   .patch-row { grid-template-columns: minmax(0, 1fr) auto; }
   .patch-row > span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
@@ -368,7 +391,8 @@ footer p { margin: 0.3rem 0; }
   .frame { grid-template-columns: minmax(0, 1fr); }
   .radar-card { grid-template-columns: minmax(0, 1fr); }
   .radar { width: 130px; }
-  .pet-slots { grid-template-columns: minmax(0, 1fr); }
+  .stage-frame { min-height: 280px; }
+  .sprite.big { --scale: 1.2; }
   .platform-strip .os { margin-left: 0; width: 100%; }
   footer { grid-template-columns: minmax(0, 1fr); }
 }

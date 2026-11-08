@@ -42,9 +42,9 @@ python3 scripts/package-release.py
 
 Release assets include the versioned npm tarball, a stable `agent-starcraft.tgz`
 alias, three identically encoded platform-prefixed Gemini ZIPs, and versioned
-and, once art is bundled, versioned and stable SCV and Probe pet ZIPs
-(`agent-starcraft-scv-pet.zip`, `agent-starcraft-probe-pet.zip`). The stub
-release skips them.
+and stable SCV pet ZIPs (`agent-starcraft-scv-pet.zip`). The SCV web atlas is
+included as `agent-starcraft-scv-pet-web.webp`. Probe pet assets are skipped
+until its artwork is bundled.
 `SHA256SUMS` covers every attached artifact. ZIP order, timestamps, permissions,
 and extracted source bytes are checked.
 
@@ -139,9 +139,11 @@ measurements of unique users. Keep the website free of analytics.
 
 ## Pet art
 
-The SCV and Probe ship as manifest-only stubs. To add art, commit
+The SCV includes artwork; the Probe remains a manifest-only stub. To add art, commit
 `pets/<id>/spritesheet.webp` (Codex v2, 1536 x 2288), `LICENSE.txt`, an updated
-`NOTICE.md`, and `assets/<id>-pet-revision.json`, then run
+`NOTICE.md`, and `assets/<id>-pet-revision.json`. Preserve the exact original
+PNG and local host manifest in `assets/original/<id>`, with its license and
+provenance, following Agent Warcraft. Then run
 `scripts/export-pet-web.py --pet <id>`, `scripts/check-pet.py`, and
 `scripts/build-assets.py`. Packaging, previews, and release assets pick the art
 up without code changes. The art must be original, never extracted from

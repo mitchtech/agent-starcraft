@@ -101,11 +101,10 @@ audio to your local speakers. This plugin does not deploy a relay or service.
 ## Native pet compatibility
 
 Sounds and pets install independently. The `starcraft` plugin registers sound
-hooks only. The SCV and Probe pet slots are manifest-only stubs in this release:
-`pet install` reports that their art is not bundled and changes nothing. Once
-art ships, they install through the pet CLI or ZIPs as local custom pets without
-hook registration or avatar selection changes, and the host drives their
-activity and animation.
+hooks only. The SCV installs through the pet CLI or its release ZIP as a local
+custom pet, without hook registration or avatar selection changes; the host
+drives its activity and animation. The Probe slot is a manifest-only stub:
+`pet install probe` reports that its art is not bundled and changes nothing.
 
 | Surface | Sounds | Native pet |
 |---|---|---|
@@ -117,11 +116,11 @@ activity and animation.
 | Other agents and scripts | Generic event interface | Depends on host; no adapter provided |
 | Headless or remote environments | Requires local audio access | No local display is implied |
 
-Asset validation checks both manifests now, and each atlas's format,
-transparency, and cell occupancy once art is bundled. Installer tests cover the
-not-bundled stubs and run real-art cases against a fixture bundle, checking
-filesystem behavior rather than native rendering on every OS. See
-[Codex pets](pets.md).
+Asset validation checks both manifests, and the SCV atlas's format,
+transparency, cell occupancy, and web export. Installer tests install the real
+SCV bundle, cover the not-bundled Probe, and run conflict cases against a
+fixture bundle, checking filesystem behavior rather than native rendering on
+every OS. See [Codex pets](pets.md).
 
 ## Validation and support baseline
 
