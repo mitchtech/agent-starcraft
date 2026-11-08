@@ -1,0 +1,18 @@
+{
+  "method": "Pillow lossless PNG-to-WebP encoding with exact RGBA preservation; no visual changes",
+  "source": {
+    "file": "assets/original/scv/spritesheet.png",
+    "sha256": "f2aeb18c5be84898ac546d8ece0bc3473a61307954fa5b445782780e04a7c36e"
+  },
+  "active": {
+    "pet.json": "3354c283a382d9a0a7dac656c0f255f2113725737473812bec67ea4991dfe40d",
+    "spritesheet.webp": "12d24983929fef6ff0139a103fbf66de5d2950d8e36a60ac728b37a28fc4a967"
+  },
+  "decodedPixelsIdentical": true,
+  "occupiedCells": 73,
+  "transparentCells": 15,
+  "web": {
+    "file": "assets/exports/agent-starcraft-scv-pet-web.webp",
+    "sha256": "edc749c50341c5175265ddea8c4d1f1ea1dd7060b62191b3b01c0580889f7a03"
+  }
+}

@@ -18,6 +18,9 @@ let samples;
 let activeButton;
 let raf = 0;
 let noise = 0;
+const html = document.documentElement;
+// With a worker sprite on the monitor, the canvas is a waveform strip along its feet and draws no emblem.
+const spriteMode = () => html.hasAttribute('data-pet-art');
 
 // The portrait is a monitor in every theme; only the phosphor color follows the faction.
 const trace = () => (faction() === 'protoss' ? '#4fd3ff' : '#46e07a');
@@ -31,6 +34,7 @@ function fit() {
 
 // An original faction emblem stands in for a unit portrait: plating rings for Terran, a crystal for Protoss.
 function emblem(alpha) {
+  if (spriteMode()) return;
   const { width, height } = canvas;
   const size = height * 0.26;
   ctx.save();
@@ -90,7 +94,8 @@ function stroke(points, gain = 1) {
   ctx.beginPath();
   points.forEach((value, index) => {
     const x = (index / (points.length - 1)) * width;
-    const y = height * 0.78 - Math.max(-1, Math.min(1, value * gain)) * height * 0.18;
+    const [middle, reach] = spriteMode() ? [0.5, 0.4] : [0.78, 0.18];
+    const y = height * middle - Math.max(-1, Math.min(1, value * gain)) * height * reach;
     if (index) ctx.lineTo(x, y); else ctx.moveTo(x, y);
   });
   ctx.stroke();
@@ -172,8 +177,73 @@ function spend() {
   return true;
 }
 
+// Codex v2 atlas rows: [row, frames, label, first column].
+const STATES = {
+  idle: [0, 6, 'idle'], 'moving-right': [1, 8, 'moving right'], 'moving-left': [2, 8, 'moving left'], waving: [3, 4, 'waving'],
+  jumping: [4, 5, 'jumping'], failure: [5, 8, 'blocked'], waiting: [6, 6, 'waiting for input'], working: [7, 6, 'working'], review: [8, 6, 'reviewing'],
+};
+const LOOKS = ['up', 'up-right 1', 'up-right 2', 'up-right 3', 'right', 'down-right 1', 'down-right 2', 'down-right 3',
+  'down', 'down-left 1', 'down-left 2', 'down-left 3', 'left', 'up-left 1', 'up-left 2', 'up-left 3'];
+LOOKS.forEach((name, direction) => { STATES[`look-${direction}`] = [9 + Math.floor(direction / 8), 1, `looking ${name}`, direction % 8]; });
+// Which animation the portrait acts out for each cue, mirroring the state Codex would show.
+const MOODS = {
+  session_started: 'waving', prompt_submitted: 'working', annoyed: 'failure', approval_required: 'waiting', input_required: 'waiting',
+  ready_for_input: 'waving', turn_completed: 'jumping', out_of_minerals: 'failure', minerals_low: 'review', out_of_gas: 'failure',
+  supply_blocked: 'review', error: 'failure', tool_failed: 'failure', subagent_started: 'moving-right', context_compacting: 'review',
+  session_ended: 'moving-left', 'easter-egg': 'jumping',
+};
+const mood = event => (event.includes('destructive') ? 'failure' : MOODS[event.split(' ')[0]] || 'idle');
+
+function animator(element) {
+  let timer;
+  let state = 'idle';
+  let paused = false;
+  const scale = () => parseFloat(getComputedStyle(element).getPropertyValue('--scale')) || 1;
+  const draw = (row, column) => { element.style.backgroundPosition = `${-column * 192 * scale()}px ${-row * 208 * scale()}px`; };
+  const render = () => {
+    clearInterval(timer);
+    const [row, count, , start = 0] = STATES[state];
+    let frame = 0;
+    draw(row, start);
+    if (paused || reducedMotion.matches || document.hidden || count < 2) return;
+    timer = setInterval(() => { frame = (frame + 1) % count; draw(row, frame); }, 160);
+  };
+  return {
+    set(next) { state = next; render(); },
+    pause(value) { paused = value; render(); },
+    get paused() { return paused; },
+    get state() { return state; },
+    render,
+  };
+}
+
+const portraitSprite = document.querySelector('#portrait-sprite');
+const portraitPet = animator(portraitSprite);
+
+// scripts/build-site.mjs lists which pets have art, so pet art lands as data: a missing atlas keeps the emblem.
+let bundled;
+function sheet(id) {
+  bundled ||= fetch('pets/index.json').then(response => (response.ok ? response.json() : {})).catch(() => ({}));
+  return bundled.then(pets => pets[id] === true);
+}
+
+// The portrait shows the selected faction's worker when its art exists.
+async function dressPortrait() {
+  const id = faction() === 'protoss' ? 'probe' : 'scv';
+  const available = await sheet(id);
+  if ((faction() === 'protoss' ? 'probe' : 'scv') !== id) return;
+  if (available) {
+    portraitSprite.style.setProperty('--sheet', `url("pets/${id}/spritesheet.webp")`);
+    html.dataset.petArt = id;
+  } else delete html.dataset.petArt;
+  fit();
+  portraitPet.render();
+  if (!panel.classList.contains('live')) idle();
+}
+
 function settle(message) {
   panel.classList.remove('live', 'pissed');
+  portraitPet.set('idle');
   activeButton?.classList.remove('playing');
   activeButton = null;
   if (!reducedMotion.matches) idle();
@@ -201,6 +271,7 @@ async function play(source, { free = false } = {}) {
     if (activeButton !== button) return;
     button?.classList.add('playing');
     panel.classList.add('live');
+    portraitPet.set(mood(event));
     status.textContent = `Playing: ${line}`;
     cancelAnimationFrame(raf);
     if (reducedMotion.matches) await envelope(url);
@@ -298,6 +369,8 @@ document.addEventListener('factionchange', () => {
   readout.event.textContent = 'Click the portrait';
   readout.length.textContent = '';
   if (!panel.classList.contains('live')) idle();
+  dressPortrait();
+  choosePet(faction() === 'protoss' ? 'probe' : 'scv');
 });
 document.addEventListener('keydown', event => {
   if (event.metaKey || event.ctrlKey || event.altKey || event.repeat) return;
@@ -312,6 +385,52 @@ document.addEventListener('keydown', event => {
 new ResizeObserver(() => { fit(); if (!panel.classList.contains('live')) idle(); }).observe(canvas);
 fit();
 idle();
+dressPortrait();
+
+// Pet stage: every animation row and look direction of the chosen pet's atlas.
+const PETS = {
+  scv: ['SCV', 'The SCV, a Terran construction worker in blue armor with an amber cockpit, a drill, and a claw'],
+  probe: ['Probe', 'The Probe, a hovering Protoss worker drone'],
+};
+const stageSprite = document.querySelector('#stage-sprite');
+const stageFrame = stageSprite.closest('.stage-frame');
+const stagePet = animator(stageSprite);
+const stateLabel = document.querySelector('#state-label');
+const stateButtons = document.querySelectorAll('[data-state]');
+let stageId = 'scv';
+function describe() {
+  stateLabel.textContent = stageFrame.classList.contains('pending') ? `The ${PETS[stageId][0]}'s art is pending` : `The ${PETS[stageId][0]} is ${STATES[stagePet.state][2]}`;
+}
+async function choosePet(id) {
+  stageId = id;
+  document.querySelectorAll('[data-pet-choice]').forEach(item => item.setAttribute('aria-pressed', String(item.dataset.petChoice === id)));
+  const available = await sheet(id);
+  if (stageId !== id) return;
+  stageFrame.classList.toggle('pending', !available);
+  stateButtons.forEach(button => { button.disabled = !available; });
+  if (available) stageSprite.style.setProperty('--sheet', `url("pets/${id}/spritesheet.webp")`);
+  stageSprite.setAttribute('aria-label', PETS[id][1]);
+  stagePet.render();
+  describe();
+}
+document.querySelectorAll('[data-pet-choice]').forEach(button => button.addEventListener('click', () => choosePet(button.dataset.petChoice)));
+const motionButton = document.querySelector('#motion-toggle');
+function renderMotion() {
+  motionButton.disabled = reducedMotion.matches;
+  motionButton.textContent = reducedMotion.matches ? 'Reduced motion is on' : stagePet.paused ? 'Resume animation' : 'Pause animation';
+  motionButton.setAttribute('aria-pressed', String(stagePet.paused || reducedMotion.matches));
+}
+stateButtons.forEach(button => button.addEventListener('click', () => {
+  stateButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+  stagePet.set(button.dataset.state);
+  describe();
+}));
+motionButton.addEventListener('click', () => { stagePet.pause(!stagePet.paused); renderMotion(); });
+reducedMotion.addEventListener('change', () => { renderMotion(); stagePet.render(); portraitPet.render(); });
+document.addEventListener('visibilitychange', () => { stagePet.render(); portraitPet.render(); });
+new ResizeObserver(() => { stagePet.render(); portraitPet.render(); }).observe(document.body);
+renderMotion();
+choosePet(faction() === 'protoss' ? 'probe' : 'scv');
 
 document.querySelectorAll('[data-copy]').forEach(button => button.addEventListener('click', async () => {
   const copyStatus = document.querySelector('#copy-status');

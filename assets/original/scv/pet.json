@@ -1,0 +1,7 @@
+{
+  "id": "scv",
+  "displayName": "SCV",
+  "description": "A hardworking StarCraft II-era Terran SCV with blue industrial armor, an amber cockpit, drill, and utility claw.",
+  "spriteVersionNumber": 2,
+  "spritesheetPath": "spritesheet.webp"
+}

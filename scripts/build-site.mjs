@@ -13,5 +13,7 @@ writeFileSync(join(out, 'index.html'), html);
 cpSync(join(root, 'audio'), join(out, 'audio'), { recursive: true });
 cpSync(join(root, 'assets', 'previews'), join(out, 'previews'), { recursive: true });
 for (const id of ['scv', 'probe']) cpSync(join(root, 'pets', id), join(out, 'pets', id), { recursive: true });
+// The page reads which pets have art from this list, so a missing atlas is never requested.
+writeFileSync(join(out, 'pets', 'index.json'), `${JSON.stringify(Object.fromEntries(['scv', 'probe'].map(id => [id, existsSync(join(root, 'pets', id, 'spritesheet.webp'))])))}\n`);
 if (existsSync(join(root, 'assets', 'exports'))) cpSync(join(root, 'assets', 'exports'), join(out, 'exports'), { recursive: true });
 console.log(`Built site: ${out}`);

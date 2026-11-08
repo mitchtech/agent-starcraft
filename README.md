@@ -2,7 +2,7 @@
   <a href="https://mitchtech.github.io/agent-starcraft/">
     <picture>
       <source media="(prefers-color-scheme: light)" srcset="assets/previews/banner-light.png">
-      <img src="assets/previews/banner.png" alt="Agent StarCraft: Job's finished. Terran and Protoss sound cues for coding agents." width="100%">
+      <img src="assets/previews/banner.png" alt="Agent StarCraft: Job's finished. Terran and Protoss sound cues for coding agents, with the SCV Codex pet on a unit monitor." width="100%">
     </picture>
   </a>
 </h1>
@@ -11,15 +11,17 @@
   <a href="https://github.com/mitchtech/agent-starcraft/actions/workflows/check.yml"><img src="https://github.com/mitchtech/agent-starcraft/actions/workflows/check.yml/badge.svg" alt="Checks"></a>
   <a href="https://github.com/mitchtech/agent-starcraft/releases/latest"><img src="https://img.shields.io/github/v/release/mitchtech/agent-starcraft?color=f2a900&labelColor=0e1216" alt="Release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/code-MIT-46e07a?labelColor=0e1216" alt="Code: MIT"></a>
+  <a href="pets/scv/LICENSE.txt"><img src="https://img.shields.io/badge/pet_artwork-CC_BY_4.0-f2a900?labelColor=0e1216" alt="Pet artwork: CC BY 4.0"></a>
   <a href="audio/NOTICE.md"><img src="https://img.shields.io/badge/audio-see_notice-4fb3ff?labelColor=0e1216" alt="Audio: see notice"></a>
 </p>
 
-<p align="center"><b>Your coding agent says <i>Job's finished.</i> when it finishes, <i>Not enough minerals.</i> when your usage runs out, and <i>Nuclear launch detected.</i> before a force push.</b></p>
+<p align="center"><b>Your coding agent says <i>Job's finished.</i> when it finishes, <i>Not enough minerals.</i> when your usage runs out, and <i>Nuclear launch detected.</i> before a force push. Codex gets an SCV to keep it company.</b></p>
 
 <p align="center">
   <a href="https://mitchtech.github.io/agent-starcraft/"><b>Hear every clip</b></a> ·
   <a href="#sounds">Event map</a> ·
   <a href="#minerals-and-supply-meters">Minerals and supply meters</a> ·
+  <a href="https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip">Download the SCV</a> ·
   <a href="https://github.com/mitchtech/agent-starcraft/releases">Releases</a> ·
   <a href="https://github.com/mitchtech/agent-navi">Agent Navi</a> ·
   <a href="https://github.com/mitchtech/agent-johnny5">Agent Johnny 5</a> ·
@@ -27,6 +29,16 @@
   <a href="https://github.com/mitchtech/agent-rocky">Agent Rocky</a> ·
   <a href="https://github.com/mitchtech/agent-starwars">Agent Star Wars</a>
 </p>
+
+<table align="center">
+  <tr>
+    <td align="center"><img src="assets/previews/scv-idle.gif" width="128" alt="The SCV pet idling"><br><sub>Idle</sub></td>
+    <td align="center"><img src="assets/previews/scv-working.gif" width="128" alt="The SCV pet working"><br><sub>Working</sub></td>
+    <td align="center"><img src="assets/previews/scv-waiting.gif" width="128" alt="The SCV pet waiting for input"><br><sub>Waiting</sub></td>
+    <td align="center"><img src="assets/previews/scv-review.gif" width="128" alt="The SCV pet reviewing"><br><sub>Review</sub></td>
+    <td align="center"><img src="assets/previews/scv-failure.gif" width="128" alt="The SCV pet blocked"><br><sub>Blocked</sub></td>
+  </tr>
+</table>
 
 <table align="center">
   <tr>
@@ -78,7 +90,7 @@ large multi-game sound pack registry, see [peon-ping](https://github.com/PeonPin
 |---|---|---|
 | Sounds | [Agent plugin](#install) or standalone CLI | Node.js 22+ and local audio |
 | Minerals and supply meters | [Status line command](#minerals-and-supply-meters) | Claude Code status line |
-| Codex pets | [Coming soon](#codex-pets-coming-soon) | A host with compatible custom pets |
+| Codex pet | [Pet installer or manual ZIP](#codex-pets) | A host with compatible custom pets |
 
 Installing the sound plugin never installs or selects a pet, and never changes
 your status line.
@@ -175,14 +187,43 @@ All commands also work as `node /path/to/agent-starcraft/scripts/starcraft.mjs .
 Standalone `play` and `preview` wait for the short clip; native hooks dispatch
 playback to a detached worker so the agent can continue immediately.
 
-## Codex pets (coming soon)
+## Codex pets
 
-The **SCV** and the **Probe** have reserved slots as native Codex pets. Their
-manifests, the installer, validation, and release packaging are in place; the
-artwork is not bundled yet. Until it ships, `agent-starcraft pet install` (or
-`pet install probe`) reports that the pet is not bundled and changes nothing,
-and `pet status` reports `not-bundled`. Codex's native pet feature can create a
-pet in the meantime. See [Codex pets](docs/pets.md).
+<p align="center"><img src="assets/previews/scv-working.gif" width="192" alt="The SCV pet drilling"></p>
+
+A native custom pet for Codex desktop and Codex CLI: the Terran **SCV**, in blue
+industrial armor with an amber cockpit, a drill, and a utility claw. It has
+nine animations and sixteen look directions. Codex animates it from its own
+activity: it drills while the agent works, waits when it needs you, and slumps
+when something fails. Pets and sounds are independent; install the SCV with
+either faction's voice, or without sounds. The Protoss **Probe** keeps a
+reserved slot until its art ships.
+
+Without Node.js, from the latest release:
+
+```bash
+curl -LO https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet.zip
+unzip agent-starcraft-scv-pet.zip -d ~/.codex/pets
+```
+
+With the standalone command, or from a checkout with `node scripts/starcraft.mjs`:
+
+```bash
+agent-starcraft pet install
+agent-starcraft doctor --pet
+```
+
+Then refresh the Codex desktop pet picker, or enter `/pets SCV` in a
+graphics-capable Codex CLI terminal. With `CODEX_HOME` set, use
+`$CODEX_HOME/pets` instead. Installation leaves pet selection and sound
+configuration unchanged; `--replace` keeps a backup of a different existing pet.
+
+### Web pets
+
+Creating a ChatGPT/Codex web pet instead? Upload the nine-row
+[SCV atlas](https://github.com/mitchtech/agent-starcraft/releases/latest/download/agent-starcraft-scv-pet-web.webp)
+and keep the CC BY 4.0 credit. See [Codex pets](docs/pets.md) for compatibility,
+the web upload, backups, and provenance.
 
 ## Sounds
 
@@ -448,7 +489,8 @@ Tests simulate players. They cover:
 - faction filtering, the random race, the annoyed window, and usage alarms
 - the minerals and supply meters and their once-per-session cues
 - easter eggs, configuration, deduplication, and overlap
-- the not-bundled pet stubs, failures, paths with spaces, and packaging
+- real SCV artwork installation, the not-bundled Probe and fixtures, failures,
+  paths with spaces, and packaging
 
 CI runs Node 22 and 24 on macOS, Linux, and Windows. See
 [compatibility](docs/compatibility.md) and [release notes](CHANGELOG.md).
@@ -467,8 +509,10 @@ the project workflow.
 - Clip sources: StarCraft Wiki (starcraft.fandom.com) file pages.
 - Sibling projects: [Agent Navi](https://github.com/mitchtech/agent-navi), [Agent Johnny 5](https://github.com/mitchtech/agent-johnny5), [Agent Warcraft](https://github.com/mitchtech/agent-warcraft) (whose runtime this project is built on), [Agent Rocky](https://github.com/mitchtech/agent-rocky), and [Agent Star Wars](https://github.com/mitchtech/agent-starwars).
 - Original plugin inspiration: [thephw/claude-meseeks](https://github.com/thephw/claude-meseeks).
+- SCV pet artwork: Michael J. Mitchell / mitchtech, made with Codex image generation, CC BY 4.0 ([license](pets/scv/LICENSE.txt)). No game sprites were extracted.
 
-Code and configuration: [MIT](LICENSE). Bundled audio is excluded; see the
-[audio rights notice](audio/NOTICE.md). Third-party character rights and
+Code and configuration: [MIT](LICENSE). Contributor rights in the SCV pet
+artwork: CC BY 4.0, with [provenance and credit](pets/scv/NOTICE.md). Bundled
+audio is excluded from both; see the [audio rights notice](audio/NOTICE.md). Third-party character rights and
 trademarks remain with their owners. This is a fan project, not affiliated with
 or endorsed by Blizzard Entertainment.

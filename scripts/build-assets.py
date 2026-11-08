@@ -113,12 +113,41 @@ def monitor(size, clip, reveal=1.0, color=GREEN):
     return canvas
 
 
-def framed_monitor(canvas, box, clip, color=GREEN, palette=NIGHT):
+def worker_sheet(pet_id="scv"):
+    """The pet's atlas when its art is bundled, so cards show the worker once it ships."""
+    path = ROOT / "pets" / pet_id / "spritesheet.webp"
+    return Image.open(path).convert("RGBA") if path.exists() else None
+
+
+SCV = worker_sheet()
+
+
+def cell(sheet, row=0, column=0):
+    return sheet.crop((column * 192, row * 208, (column + 1) * 192, (row + 1) * 208))
+
+
+def framed_monitor(canvas, box, clip, color=GREEN, palette=NIGHT, worker=None):
     left, top, right, bottom = box
     draw = ImageDraw.Draw(canvas, "RGBA")
     bevel(draw, (left - 6, top - 6, right + 6, bottom + 6), palette)
     draw.rectangle((left - 3, top - 3, right + 3, bottom + 3), outline=AMBER, width=3)
-    canvas.alpha_composite(monitor((right - left, bottom - top), clip, color=color), (left, top))
+    width, height = right - left, bottom - top
+    if worker is None:
+        canvas.alpha_composite(monitor((width, height), clip, color=color), (left, top))
+        return
+    # As on the site: the worker fills the monitor and the waveform runs along its feet, screen-blended.
+    screen = Image.new("RGBA", (width, height), MONITOR + (255,))
+    glow = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    ImageDraw.Draw(glow).ellipse((width * 0.2, height * 0.35, width * 0.8, height * 1.05), fill=color + (60,))
+    screen.alpha_composite(glow.filter(ImageFilter.GaussianBlur(height // 8)))
+    scale = height * 0.92 / 208
+    sprite = worker.resize((round(192 * scale), round(208 * scale)), Image.LANCZOS)
+    screen.alpha_composite(sprite, ((width - sprite.width) // 2, height - sprite.height - round(height * 0.04)))
+    strip_height = round(height * 0.3)
+    strip = monitor((width, strip_height), clip, color=color)
+    base = screen.crop((0, height - strip_height, width, height)).convert("RGB")
+    screen.paste(ImageChops.screen(base, strip.convert("RGB")), (0, height - strip_height))
+    canvas.alpha_composite(screen, (left, top))
 
 
 def headline(canvas, xy, size, limit, palette=NIGHT, words=("JOB'S", "FINISHED.")):
@@ -190,6 +219,7 @@ for pet_id in PETS:
             canvas.alpha_composite(sprite, ((288 - 192) // 2, 288 - 208 - 24))
             frames.append(canvas.convert("RGB"))
         frames[0].save(OUT / f"{pet_id}-{name}.gif", save_all=True, append_images=frames[1:], duration=160, loop=0, disposal=2)
+    sheet.crop((0, 0, 192, 208)).save(OUT / f"{pet_id}-idle.png")
 
 # Waveform previews: a sweep that reveals each clip, then holds.
 label_font = font(BOLD, 18)
@@ -218,8 +248,8 @@ draw.text((90, 350), "reporting for duty.", font=font(DISPLAY, 40), fill=NIGHT["
 for row, text in enumerate(["StarCraft sound cues for", "Claude Code, Codex, and Gemini CLI"]):
     draw.text((90, 466 + row * 38), text, font=font(BODY, 30), fill=NIGHT["muted"])
 resources(card, (700, 92))
-framed_monitor(card, (690, 172, 1110, 476), "terran-scv-jobs-finished")
-draw.text((690, 506), "TERRAN + PROTOSS", font=font(BOLD, 26), fill=AMBER)
+framed_monitor(card, (690, 172, 1110, 476), "terran-scv-jobs-finished", worker=cell(SCV, 7, 2) if SCV else None)
+draw.text((690, 506), "SOUND CUES + AN SCV CODEX PET" if SCV else "TERRAN + PROTOSS", font=font(BOLD, 26), fill=AMBER)
 card.convert("RGB").save(OUT / "social.png")
 
 # The README hero swaps between these with prefers-color-scheme.
@@ -230,20 +260,27 @@ for palette, name in ((NIGHT, "banner.png"), (DAY, "banner-light.png")):
     headline(banner, (86, 118), 128, 620, palette)
     draw.text((94, 296), "Terran and Protoss sound cues", font=font(BODY, 32), fill=palette["muted"])
     draw.text((94, 340), "for coding agents.", font=font(BODY, 32), fill=palette["muted"])
-    framed_monitor(banner, (770, 80, 1190, 360), "terran-scv-jobs-finished", palette=palette)
+    framed_monitor(banner, (770, 80, 1190, 360), "terran-scv-jobs-finished", palette=palette, worker=cell(SCV) if SCV else None)
     banner.convert("RGB").save(OUT / name)
 
 touch = Image.new("RGBA", (180, 180), NIGHT["bg"] + (255,))
 draw = ImageDraw.Draw(touch, "RGBA")
 draw.rounded_rectangle((6, 6, 173, 173), radius=18, fill=MONITOR + (255,), outline=AMBER, width=4)
-crystal(draw, 90, 26, 128)
+if SCV:
+    # The idle SCV, full body, fills the icon once its art is bundled.
+    touch.alpha_composite(cell(SCV).crop((8, 18, 186, 206)).resize((150, 158), Image.LANCZOS), (15, 12))
+else:
+    crystal(draw, 90, 26, 128)
 touch.convert("RGB").save(OUT / "touch-icon.png")
 
 # The plugin listing icon: the validator asks for a square PNG of at least 512 px.
 icon = Image.new("RGBA", (512, 512), NIGHT["bg"] + (255,))
 draw = ImageDraw.Draw(icon, "RGBA")
 draw.rounded_rectangle((16, 16, 495, 495), radius=52, fill=MONITOR + (255,), outline=AMBER, width=12)
-crystal(draw, 256, 74, 364)
+if SCV:
+    icon.alpha_composite(cell(SCV).crop((8, 18, 186, 206)).resize((424, 448), Image.LANCZOS), (44, 34))
+else:
+    crystal(draw, 256, 74, 364)
 icon.convert("RGB").save(OUT / "icon.png")
 
 

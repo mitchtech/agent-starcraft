@@ -1,0 +1,37 @@
+1
+00:00:00,000 --> 00:00:04,000
+Meet the SCV
+A native custom pet for Codex.
+Codex animates it; the plugin plays sounds.
+Atlas animation preview - not a native host recording
+
+2
+00:00:04,000 --> 00:00:08,000
+Agent working
+"Affirmative."
+Atlas animation preview - not a native host recording
+
+3
+00:00:08,000 --> 00:00:12,000
+Needs your approval
+"Orders, Captain?"
+Atlas animation preview - not a native host recording
+
+4
+00:00:12,000 --> 00:00:16,000
+Turn finished
+"Job's finished."
+Atlas animation preview - not a native host recording
+
+5
+00:00:16,000 --> 00:00:20,000
+Out of usage
+"Not enough minerals."
+Atlas animation preview - not a native host recording
+
+6
+00:00:20,000 --> 00:00:25,000
+Install the SCV
+Independent of the sounds.
+Choose it in the pet picker.
+Atlas animation preview - not a native host recording

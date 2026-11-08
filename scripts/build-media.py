@@ -8,7 +8,7 @@ from array import array
 from pathlib import Path
 import sys
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "promotion"
@@ -21,6 +21,8 @@ FONTS = ROOT / "site" / "fonts"
 TITLE = FONTS / "oxanium-latin-700-normal.woff2"
 BODY = FONTS / "exo-2-latin-400-normal.woff2"
 LABEL = FONTS / "exo-2-latin-700-normal.woff2"
+ATLAS = ROOT / "pets" / "scv" / "spritesheet.webp"
+SHEET = Image.open(ATLAS).convert("RGBA") if ATLAS.exists() else None
 
 
 def samples(clip):
@@ -100,7 +102,25 @@ def scope(values, reveal, color=GREEN):
     return screen
 
 
-# (start, end, title, subtitle, command, cue clip or None)
+def stage(row, count, elapsed, values=None, reveal=0.0):
+    """A 720 x 360 monitor with the SCV animating `row` at 160 ms per frame and the waveform along its feet."""
+    width, height = 720, 360
+    screen = Image.new("RGBA", (width, height), MONITOR + (255,))
+    halo = Image.new("RGBA", (width, height), (0, 0, 0, 0))
+    ImageDraw.Draw(halo).ellipse((200, 90, 520, 380), fill=GREEN + (55,))
+    screen.alpha_composite(halo.filter(ImageFilter.GaussianBlur(60)))
+    column = int(elapsed / 0.16) % count
+    sprite = SHEET.crop((column * 192, row * 208, (column + 1) * 192, (row + 1) * 208)).resize((298, 323), Image.LANCZOS)
+    screen.alpha_composite(sprite, ((width - sprite.width) // 2, height - sprite.height - 12))
+    # Drop the scope's own border so only the trace joins the stage.
+    strip = scope(values or [0.01] * 180, reveal if values else 1.0).crop((4, 4, 716, 356)).resize((width, 100))
+    base = screen.crop((0, height - 100, width, height)).convert("RGB")
+    screen.paste(ImageChops.screen(base, strip.convert("RGB")), (0, height - 100))
+    ImageDraw.Draw(screen).rectangle((0, 0, width - 1, height - 1), outline=AMBER, width=4)
+    return screen
+
+
+# (start, end, title, subtitle, command, cue clip or None[, (atlas row, frames)])
 sound_scenes = [
     (0, 4, "Session started", '"SCV good to go, sir."', None, "terran-scv-good-to-go"),
     (4, 8, "Approval needed", '"Orders, Captain?"', None, "terran-scv-orders-captain"),
@@ -113,6 +133,14 @@ faction_scenes = [
     (0, 5, "Pick a faction", "Terran by default.\nProtoss, both, or random on request.", "agent-starcraft faction protoss", "protoss-zealot-my-life-for-aiur"),
     (5, 10, "Research complete.", "The same events, voiced by the Protoss.", "agent-starcraft faction protoss", "protoss-advisor-research-complete"),
     (10, 16, "Context nearly full", '"You must construct additional pylons!"', "agent-starcraft statusline", "protoss-advisor-construct-pylons"),
+]
+pet_scenes = [
+    (0, 4, "Meet the SCV", "A native custom pet for Codex.\nCodex animates it; the plugin plays sounds.", None, None, (0, 6)),
+    (4, 8, "Agent working", '"Affirmative."', None, "terran-scv-affirmative", (7, 6)),
+    (8, 12, "Needs your approval", '"Orders, Captain?"', None, "terran-scv-orders-captain", (6, 6)),
+    (12, 16, "Turn finished", '"Job\'s finished."', None, "terran-scv-jobs-finished", (4, 5)),
+    (16, 20, "Out of usage", '"Not enough minerals."', None, "terran-adjutant-not-enough-minerals", (5, 8)),
+    (20, 25, "Install the SCV", "Independent of the sounds.\nChoose it in the pet picker.", "agent-starcraft pet install", None, (3, 4)),
 ]
 CUE_OFFSET = 0.5
 
@@ -136,9 +164,12 @@ def build(name, scenes, footer):
             second = tick / FPS
             index = next(i for i, scene in enumerate(scenes) if scene[0] <= second < scene[1])
             start, clip = scenes[index][0], scenes[index][5]
+            pet = scenes[index][6] if len(scenes[index]) > 6 else None
             image = cards[index].copy()
             reveal = min(1.0, max(0.0, (second - start - CUE_OFFSET) / (len(clips[clip]) / RATE))) if clip else 1.0
-            if clip:
+            if pet:
+                screen = stage(*pet, elapsed=second - start, values=waves.get(clip), reveal=reveal)
+            elif clip:
                 # The Protoss trace is psionic blue, as on the site.
                 screen = scope(waves[clip], reveal, PSIONIC if clip.startswith("protoss-") else GREEN)
             else:
@@ -177,8 +208,10 @@ def build(name, scenes, footer):
 
 used = build("sound-preview", sound_scenes, "Illustrated sound preview - not a live host recording")
 used += build("faction-preview", faction_scenes, "Configuration preview - event coverage varies by host")
-# A pet preview joins these once SCV or Probe art is bundled.
-sources = [ROOT / f"audio/{clip}.wav" for clip in sorted(set(used))] + [TITLE, BODY, LABEL]
+# The pet preview joins these once SCV art is bundled.
+if SHEET:
+    used += build("pet-preview", pet_scenes, "Atlas animation preview - not a native host recording")
+sources = [ROOT / f"audio/{clip}.wav" for clip in sorted(set(used))] + ([ATLAS] if SHEET else []) + [TITLE, BODY, LABEL]
 
 
 def record(path):
@@ -195,7 +228,8 @@ manifest = {
     "credentials_used": [],
     "limitations": ["Not a live host or physical audio recording.",
                      "No claim of hook execution in these videos.",
-                     "Audio is assembled from the bundled, separately noticed StarCraft clips."],
+                     "Audio is assembled from the bundled, separately noticed StarCraft clips."]
+    + (["Pet animation is drawn from the bundled SCV atlas; Codex, not the sound plugin, animates the installed pet."] if SHEET else []),
 }
 (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
-print(f"Built two captioned previews in {OUT.relative_to(ROOT)}")
+print(f"Built {3 if SHEET else 2} captioned previews in {OUT.relative_to(ROOT)}")
