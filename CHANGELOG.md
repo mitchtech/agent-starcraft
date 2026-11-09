@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 - 2026-11-08
+
+- Update development-only Pillow to 13.0.0 to resolve decoder security advisories. Revalidate pet atlases, web exports, and generated previews; sound runtimes remain dependency-free.
+
 ## 0.3.0 - 2026-11-08
 
 - Bundle the original Protoss Probe artwork, with independent installation, a nine-row web export, and release ZIPs. Preserve the source PNG and every decoded pixel.

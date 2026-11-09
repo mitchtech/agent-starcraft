@@ -1,6 +1,6 @@
 {
   "name": "starcraft",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "StarCraft sound notifications for coding agents with a Terran/Protoss toggle, plus native SCV and Probe Codex pets: Job's finished!",
   "icon": "./assets/previews/icon.png",
   "author": {
