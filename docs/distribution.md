@@ -16,8 +16,9 @@ changelog, and run the contributor checks. After its PR merges into `main`, tag
 the merged commit and push the tag:
 
 ```bash
-git tag v0.2.0
-git push origin v0.2.0
+release_tag="v$(node -p "require('./package.json').version")"
+git tag "$release_tag"
+git push origin "$release_tag"
 ```
 
 The release workflow checks Node 22/24 on macOS, Linux, and Windows, including
@@ -42,9 +43,9 @@ python3 scripts/package-release.py
 
 Release assets include the versioned npm tarball, a stable `agent-starcraft.tgz`
 alias, three identically encoded platform-prefixed Gemini ZIPs, and versioned
-and stable SCV pet ZIPs (`agent-starcraft-scv-pet.zip`). The SCV web atlas is
-included as `agent-starcraft-scv-pet-web.webp`. Probe pet assets are skipped
-until its artwork is bundled.
+and stable SCV and Probe pet ZIPs (`agent-starcraft-scv-pet.zip` and
+`agent-starcraft-probe-pet.zip`). Each pet also has a matching nine-row
+`agent-starcraft-<id>-pet-web.webp` atlas.
 `SHA256SUMS` covers every attached artifact. ZIP order, timestamps, permissions,
 and extracted source bytes are checked.
 
@@ -94,8 +95,9 @@ No analytics, third-party fonts, or runtime telemetry are loaded; `site/fonts`
 holds the OFL-licensed faces.
 
 The Pages workflow checks out the latest published release tag, validates, and
-builds before deployment. Before the first release it publishes the pushed
-commit. It runs after successful releases, on main updates, or manually.
+builds before deployment. A failed release lookup stops deployment; only
+published release tags are deployed. It runs after successful releases, on
+main updates, or manually.
 The repository homepage points to `https://mitchtech.github.io/agent-starcraft/`.
 Its social card is also available at
 `https://mitchtech.github.io/agent-starcraft/previews/social.png`.
@@ -139,7 +141,7 @@ measurements of unique users. Keep the website free of analytics.
 
 ## Pet art
 
-The SCV includes artwork; the Probe remains a manifest-only stub. To add art, commit
+The SCV and Probe include artwork. To add a new pet's art, commit
 `pets/<id>/spritesheet.webp` (Codex v2, 1536 x 2288), `LICENSE.txt`, an updated
 `NOTICE.md`, and `assets/<id>-pet-revision.json`. Preserve the exact original
 PNG and local host manifest in `assets/original/<id>`, with its license and
@@ -148,3 +150,15 @@ provenance, following Agent Warcraft. Then run
 `scripts/build-assets.py`. Packaging, previews, and release assets pick the art
 up without code changes. The art must be original, never extracted from
 Blizzard games.
+
+## Automated maintenance
+
+PR checks run the Node 22/24 matrix on Linux, macOS, and Windows, including
+preview pixel verification and a full release package build. New commits
+cancel superseded checks on the same PR. Release publication still requires
+matching manifest/tag versions and a commit merged into `main`.
+
+Dependabot checks Python build dependencies and GitHub Actions weekly, with
+one grouped PR per ecosystem. Security updates remain enabled independently.
+Actions use immutable commit pins with version comments so Dependabot can
+update them. Review required checks before merging dependency updates.
